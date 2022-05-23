@@ -1,7 +1,7 @@
 
 /* КЛАССЫ НАЧАЛЬНОЙ СТРАНИЦЫ */
 .body{
-    background: #639643 url("img/test.jpg");
+    background: #639643 url{[[@{/img/test.jpg}]]} ;
     width: 100%;
     flex-wrap: wrap;
     margin: auto;
