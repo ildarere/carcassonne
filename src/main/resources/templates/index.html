@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carcassonne - онлайн игра</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -13,17 +14,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
-<body class="body" th:style="'background: url(/img/test.jpg)  center center fixed;'">
+<body class="body" th:style="'background: url(/img/test.jpg) center center fixed; '">
 <div class="menu">
     <div class="submenu">
-        <a th:href="@{/}" class="name"><img class = logo th:src="@{/img/logo.png}" >Carcassonne Online</a>
-        <a th:href="@{/gameLobby}"  class="accent">ПОИСК ИГР</a>
-        <a class="block" >Друзья</a>
+        <a href="index.html" class="name"><img class="logo" th:src="@{/img/logo.png}">Carcassonne Online</a>
+        <a href="gameLobby.html" class="accent">ПОИСК ИГР</a>
+        <a href="friends.html" class="block" >Друзья</a>
         <a href="#cont" class="block">Контакты</a>
         <div class="dropdownMenu">
-            <button class="menubtn"><img class="img"  th:src="@{/img/avatar.jpg}"></button>
+            <button class="menubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
             <div class="dropdownMenu-content">
-                <a th:href="@{/profile}">Иванов Иван</a>
+                <a href="profile.html">Иванов Иван</a>
                 <a href="#">Рейтинг - 0</a>
                 <a href="#">Выйти</a>
             </div>
@@ -42,7 +43,7 @@
         <div class="subFooter">
             <div class="info">Сайт разработан в учебных целях в рамках РГР по дисциплине "Технологии и методы программирования"</div>
             <div class="info1">Разработчики Максутов Ильдар Бахмацкий Юрий Иванов Максим</div>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" th:src="@{/img/vk.png}" > </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" th:src="@{/img/vk.png}"> </a>
         </div>
     </div>
 
