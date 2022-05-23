@@ -1,7 +1,7 @@
 
 /* КЛАССЫ НАЧАЛЬНОЙ СТРАНИЦЫ */
 .body{
-    background: #639643 url{[[@{/img/test.jpg}]]} ;
+    background: #639643 url("img/test.jpg");
     width: 100%;
     flex-wrap: wrap;
     margin: auto;
@@ -11,8 +11,9 @@
 
 .menu{
     background-color: #71af4e;
+    top: 0;
     width: 100%;
-    height: 70px;
+    height: 10%;
     display: flex;
     justify-content:center;
     position: fixed;
@@ -21,7 +22,7 @@
 .submenu{
     display: flex;
     position: fixed;
-    width: 900px;
+    width: 60%;
     justify-content: space-between;
     align-items: center;
 }
@@ -114,8 +115,8 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 .main{
     display: flex;
     position: fixed;
-    left: 318px;
-    margin: 260px 0 0 0;
+    top: 40%;
+    left: 20%;
     width: 800px;
 }
 
@@ -159,10 +160,11 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 .footer {
     background-color: aliceblue;
     width: 100%;
+    position: absolute;
+    top: 100%;
     height: 100px;
     display: flex;
     justify-content:center;
-    margin: 720px 0 0 0;
 }
 
 .subFooter{
@@ -210,7 +212,8 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 .gameMenu{
     background-color: aliceblue;
     width: 100%;
-    height: 70px;
+    height: 10%;
+    top: 0;
     display: flex;
     justify-content:center;
     position: fixed;
@@ -292,9 +295,9 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 .gameMain{
     display: flex;
     position: absolute;
-    top: 100px;
-    left: 395px;
-    width: 800px;
+    top: 20%;
+    left: 25%;
+    width: 745px;
     flex-flow: column;
 }
 
@@ -302,7 +305,6 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     background-color: aliceblue;
     display: flex;
     width: 700px;
-    left: 300px;
     height: 80px;
     justify-content: space-between;
     align-items: center;
@@ -341,8 +343,93 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 
 .imgPlus{
     border-radius: 100px; /* Радиус скругления */
-    border: 3px solid aliceblue; /* Параметры рамки */
+    border: 3px aliceblue; /* Параметры рамки */
     box-shadow: 0 0 7px rgba(102, 102, 102, 0); /* Параметры тени */
     width: 70px;
     height: 70px;
+}
+
+
+.playerName{
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #639643;
+    font-size: 20px;
+}
+.playerName:hover{
+    background-color: #e1e9ef;
+
+}
+
+.hiddenDelete{
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: rgba(240, 248, 255, 0);
+    background-color: rgba(220, 20, 60, 0);
+    font-size: 20px;
+    padding: 10px;
+    border: rgba(220, 20, 60, 0);
+    border-radius: 5px;
+}
+.hiddenDelete:hover{
+    color: aliceblue;
+    background-color: crimson;
+    border: crimson;
+}
+
+.profileMain{
+    display: flex;
+    position: absolute;
+    top: 13%;
+    left: 20%;
+    width: 210px;
+    flex-flow: column;
+
+}
+
+.profileImg{
+    border-radius: 100px; /* Радиус скругления */
+    border: 4px solid #639643; /* Параметры рамки */
+    box-shadow: 0 0 7px rgba(102, 102, 102, 0); /* Параметры тени */
+    width: 200px;
+    height: 200px;
+
+}
+
+.profileMain1{
+
+    display: flex;
+    position: absolute;
+    width: 25%;
+    height: 40%;
+    flex-flow: column;
+    justify-content: space-between;
+    background-color: #000000;
+    border-radius: 5px;
+    border: rgba(240, 248, 255, 0);
+    padding: 10px;
+
+}
+
+.profileName{
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 40px;
+}
+
+.profileMainColumn{
+
+    display: flex;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    width: 50%;
+    height: 50%;
+    flex-flow: column;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border: rgba(240, 248, 255, 0);
+    padding: 10px;
+
 }
