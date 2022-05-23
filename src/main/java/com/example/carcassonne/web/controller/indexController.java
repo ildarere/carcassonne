@@ -9,6 +9,7 @@ public class indexController {
 
     @GetMapping("/")
     public String indexPage(Model model){
+
         return "index";
     }
 }
