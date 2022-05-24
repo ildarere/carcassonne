@@ -1,8 +1,12 @@
 package com.example.carcassonne.domain.user;
 
+import com.example.carcassonne.data.user.FriendsRepository;
+import com.example.carcassonne.data.user.UserDataRepository;
 import com.example.carcassonne.data.user.UserRepository;
+import com.example.carcassonne.domain.model.Friends;
 import com.example.carcassonne.domain.model.Role;
 import com.example.carcassonne.domain.model.User;
+import com.example.carcassonne.domain.model.UserData;
 import com.example.carcassonne.web.form.user.UserForm;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,12 @@ public class UserServiceDomain implements UserService {
     UserRepository userRepository;
 
     @Autowired
+    UserDataRepository userDataRepository;
+
+    @Autowired
+    FriendsRepository friendsRepository;
+
+    @Autowired
     @Lazy
     private PasswordEncoder passEncoder;
 
@@ -32,6 +42,16 @@ public class UserServiceDomain implements UserService {
         userRepository.findAll().forEach(users::add);
 
         return users;
+    }
+
+    @Override
+    public List<Friends> findFriendsById(int id){
+       return friendsRepository.findById(id);
+    }
+
+    @Override
+    public int countOfFriends(int id) {
+        return friendsRepository.countOfFriends(id);
     }
 
     @Override
@@ -50,12 +70,28 @@ public class UserServiceDomain implements UserService {
     }
 
     @Override
+    public List<UserData> findByNameContaining(String name) {
+        return userRepository.findByNameContaining(name);
+    }
+
+    @Override
+    public UserData findDataById(Long id) {
+        return userDataRepository.findDataById(id);
+    }
+
+    @Override
     public void update(@Valid UserForm userForm) {
         User u = new User();
+
         BeanUtils.copyProperties(userForm, u, "password");
+
+
         u.setPassword(passEncoder.encode(userForm.getPassword()));
         u.setRoles(Role.USER.toString());
 
         userRepository.save(u);
+        UserData um = new UserData(true, u.getId(), u.getName());
+        System.out.println(um.toString());
+        userDataRepository.save(um);
     }
 }

@@ -24,8 +24,8 @@
         <div class="gameDropdownMenu">
             <button class="gameMenubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
             <div class="gameDropdownMenu-content">
-                <a th:href="@{/profile}">Иванов Иван</a>
-                <a href="#">Рейтинг - 0</a>
+                <a th:href="@{/profile}" th:text="${currentName}">Иванов Иван</a>
+                <a href="#" th:text="${currentRating}">Рейтинг - 0</a>
                 <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
             </div>
         </div>
@@ -33,14 +33,14 @@
 </div>
 <div class="profileMainColumn">
     <div class="profileMain1">
-        <div class="profileName">Иван Иванов</div>
-        <div class="default">Рейтинг - 0</div>
-        <div class="default">IvanIvanov@mail.ru</div>
+        <div class="profileName" th:utext="${name}">Иван Иванов</div>
+        <div class="default" th:utext="${rating}">Рейтинг - 0</div>
+        <div class="default" th:utext="${mail}">IvanIvanov@mail.ru</div>
     </div>
     <div class="profileMain2">
-        <div class="defaultFixed">Игр сыграно: 0</div>
-        <div class="defaultFixed">Побед: 0</div>
-        <div class="defaultFixed">Друзей: 4</div>
+        <div class="defaultFixed" th:utext="${gamesCount}">Игр сыграно: 0</div>
+        <div class="defaultFixed" th:utext="${wins}">Побед: 0</div>
+        <div class="defaultFixed" th:utext="${friends}">Друзей: 4</div>
     </div>
 </div>
 

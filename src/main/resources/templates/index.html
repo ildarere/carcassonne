@@ -24,7 +24,7 @@
         <div class="dropdownMenu">
             <button class="menubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
             <div class="dropdownMenu-content" sec:authorize="isAuthenticated()">
-                <a th:href="@{/profile}">Иванов Иван</a>
+                <a th:href="@{/profile}" th:text="${currentName}">Иванов Иван</a>
                 <a href="#">Рейтинг - 0</a>
                 <a href="#" th:href="@{/logout}">Выйти</a>
             </div>
