@@ -1,6 +1,8 @@
 package com.example.carcassonne.domain.user;
 
+import com.example.carcassonne.domain.model.Friends;
 import com.example.carcassonne.domain.model.User;
+import com.example.carcassonne.domain.model.UserData;
 import com.example.carcassonne.web.form.user.UserForm;
 
 
@@ -13,6 +15,9 @@ public interface UserService {
     List<User> getList();
     Optional<User> findByEmailAndEnabledTrue(String email);
     Optional<User> findByEmail(String email);
+    List<UserData> findByNameContaining(String name);
+
+    List<Friends> findFriendsById(int id);
 
     boolean isUserWithEmailExist(String email);
 	void update(@Valid UserForm userForm);

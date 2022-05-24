@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String token;
     private String roles;
 
+
     public Long getId() {
         return id;
     }
