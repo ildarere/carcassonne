@@ -647,3 +647,143 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     border: #bbbec4;
     border-radius: 1vw;
 }
+
+.auth{
+    display: flex;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    width: 500px;
+    height: 350px;
+    padding: 1vh;
+    flex-flow: column;
+    background-color: aliceblue;
+    border: aliceblue;
+    border-radius: 1vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    color: crimson;
+    font-size: 18px;
+}
+
+.form-group {
+    font-family: 'Ubuntu', sans-serif;
+    color: #344f21;
+    text-align: center;
+    font-size: 25px;
+    padding: 2%;
+    border: #344f21;
+}
+
+.form-control {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: start;
+    color: #344f21;
+    font-size: 20px;
+    padding: 1%;
+    border: #344f21;
+}
+
+.defaultAuth {
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 30px;
+    width: 50%;
+    height: 15%;
+    text-align: center;
+}
+
+.authBody{
+    background: #e4e7ea;
+    background-size: cover;
+    width:10vw;
+    height: 10vh;
+    flex-wrap: wrap;
+    margin: auto;
+    display: inline-block;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.stdBtn {
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: aliceblue;
+    font-size: 20px;
+    width: 50%;
+    height: 16%;
+    text-align: center;
+    background-color: #639643;
+    border: #e4e7ea;
+    border-radius: 1vh;
+    padding: 1%;
+
+}
+
+.defaultReg {
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 30px;
+    width: 50%;
+    height: 15%;
+    text-align: center;
+}
+
+.auth1{
+    display: flex;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    width: 500px;
+    height: 400px;
+    padding: 1vh;
+    flex-flow: column;
+    background-color: aliceblue;
+    border: aliceblue;
+    border-radius: 1vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.finder {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: start;
+    color: #344f21;
+    font-size: 2.2vw;
+    padding: 1%;
+    border: #344f21;
+
+}
+
+.findButton{
+
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 3vh;
+    width: 11vw;
+    min-width: 11vw;
+    max-width: 11vw;
+    min-height:4vh ;
+    max-height: 4vh;
+    height: 4vh;
+    text-align: center;
+    padding: 1%;
+}
+.findButton:hover{
+    background-color: #71af4e;
+    color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 1%;
+    border: #71af4e;
+    border-radius: 1vw;
+    text-align: center;
+}

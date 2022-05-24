@@ -26,8 +26,10 @@
             <div class="gameDropdownMenu-content">
                 <a th:href="@{/profile}">Иванов Иван</a>
                 <a href="#">Рейтинг - 0</a>
-                <a href="#">Выйти</a>
+                <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
             </div>
+            <a class="logout" href="#" th:href="@{/user/registration}">Registration</a>
+            <a class="logout" href="#" th:href="@{/login}">Login</a>
         </div>
     </div>
 </div>
