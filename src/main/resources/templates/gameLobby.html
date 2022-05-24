@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Поиск игр</title>
@@ -26,7 +26,11 @@
                 <div class="gameDropdownMenu-content">
                     <a th:href="@{/profile}">Иванов Иван</a>
                     <a href="#">Рейтинг - 0</a>
-                    <a href="#">Выйти</a>
+                    <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
+                </div>
+                <div class="dropdownMenu-content" sec:authorize="isAnonymous()">
+                    <a class="logout" href="#" th:href="@{/user/registration}">Registration</a>
+                    <a class="logout" href="#" th:href="@{/login}">Login</a>
                 </div>
             </div>
         </div>

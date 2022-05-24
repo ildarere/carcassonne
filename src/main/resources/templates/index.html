@@ -26,11 +26,11 @@
             <div class="dropdownMenu-content" sec:authorize="isAuthenticated()">
                 <a th:href="@{/profile}">Иванов Иван</a>
                 <a href="#">Рейтинг - 0</a>
-                <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
+                <a href="#" th:href="@{/logout}">Выйти</a>
             </div>
             <div class="dropdownMenu-content" sec:authorize="isAnonymous()">
-                <a class="logout" href="#" th:href="@{/user/registration}">Registration</a>
-                <a class="logout" href="#" th:href="@{/login}">Login</a>
+                <a href="#" th:href="@{/user/registration}">Регистрация</a>
+                <a href="#" th:href="@{/login}">Войти</a>
             </div>
         </div>
     </div>
