@@ -17,14 +17,14 @@
 <body class="body" th:style="'background: url(/img/test.jpg) center center fixed; '">
 <div class="menu">
     <div class="submenu">
-        <a href="index.html" class="name"><img class="logo" th:src="@{/img/logo.png}">Carcassonne Online</a>
-        <a href="gameLobby.html" class="accent">ПОИСК ИГР</a>
-        <a href="friends.html" class="block" >Друзья</a>
+        <a th:href="@{/}" class="name"><img class="logo" th:src="@{/img/logo.png}">Carcassonne Online</a>
+        <a th:href="@{/gameLobby}" class="accent">ПОИСК ИГР</a>
+        <a th:href="@{/friends}" class="block" >Друзья</a>
         <a href="#cont" class="block">Контакты</a>
         <div class="dropdownMenu">
             <button class="menubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
             <div class="dropdownMenu-content" sec:authorize="isAuthenticated()">
-                <a href="profile.html">Иванов Иван</a>
+                <a th:href="@{/profile}">Иванов Иван</a>
                 <a href="#">Рейтинг - 0</a>
                 <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
             </div>
@@ -39,7 +39,7 @@
     <div class="main">
         <div class="subMain">
             <div id="text1"> Добро пожаловать в каркассон!</div>
-            <a id="text2"> Начать игру</a>
+            <a th:href="@{/gameLobby}" id="text2"> Начать игру</a>
         </div>
     </div>
 
