@@ -23,23 +23,16 @@ public class FriendListController {
     @GetMapping("/friends")
     public String friends(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(principal!=null){
-            int currentId =Math.toIntExact(((UserDetailsImpl) principal).getId());
-            List<Friends> fr =userService.findFriendsById(currentId);
-            for (Friends i: fr) {
-                if(i.getFirstFriend()==currentId){
-                }
-            }
-        }
+        
 
 
         UserData userData= userService.findDataById(((UserDetailsImpl)principal).getId());
         model.addAttribute("currentName",  ((UserDetailsImpl) principal).getName());
         model.addAttribute("currentRating","Рейтинг - " + userData.getRating());
+        model.addAttribute("friendList", userService.findFriendsListById(Math.toIntExact(((UserDetailsImpl) principal).getId())));
+        // userService.findByNameContaining("%a%");
 
-
-
-//        System.out.println(userService.findByNameContaining("%a%").toString());
+//        System.out.println(.toString());
         return "/friends";
     }
 

@@ -46,7 +46,21 @@ public class UserServiceDomain implements UserService {
 
     @Override
     public List<Friends> findFriendsById(int id){
-       return friendsRepository.findById(id);
+       return friendsRepository.findFriendsById(id);
+    }
+
+    @Override
+    public List<UserData> findFriendsListById(int id) {
+        List<Friends> fr =findFriendsById(id);
+        List<UserData> users = new ArrayList<>();
+        for (Friends i: fr) {
+            if(i.getFirstFriend()==id){
+               users.add(findDataById((long) i.getSecondFriend())) ;
+            }else if(i.getSecondFriend()==id){
+                users.add(findDataById((long) i.getFirstFriend())) ;
+            }
+        }
+        return users;
     }
 
     @Override

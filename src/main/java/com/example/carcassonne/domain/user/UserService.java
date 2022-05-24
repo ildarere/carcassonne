@@ -18,6 +18,7 @@ public interface UserService {
     List<UserData> findByNameContaining(String name);
     UserData findDataById(Long id);
     List<Friends> findFriendsById(int id);
+    List<UserData> findFriendsListById(int id);
     int countOfFriends(int id);
     boolean isUserWithEmailExist(String email);
 	void update(@Valid UserForm userForm);
