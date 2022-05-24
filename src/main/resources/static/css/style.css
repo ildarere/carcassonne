@@ -1,9 +1,9 @@
 
 /* КЛАССЫ НАЧАЛЬНОЙ СТРАНИЦЫ */
 .body{
-    background: #639643;
+    background: #639643 url("img/test.jpg");
     background-size: cover;
-    width: 100vw;
+    width: calc(1840 / 1840 * 100%);
     height: 115vh;
     flex-wrap: wrap;
     margin: auto;
@@ -56,18 +56,20 @@ a { text-decoration: none}
     font-family: 'Ubuntu', sans-serif;
     padding: 1%;
     border: aliceblue;
-    border-radius: 5px;
-    width: 6vw;
-    min-width: 6vw;
-    max-width: 6vw;
+    border-radius: 1vw;
+    width: 8vw;
+    min-width: 8vw;
+    max-width: 8vw;
     min-height: 3vh ;
     max-height: 3vh;
     height: 3vh;
     font-size: 1vw;
+    text-align: center;
 }
 .accent:hover{
     background-color: #ffffff;
     color: #71af4e;
+    border-radius: 1vw;
 }
 
 .block{
@@ -76,13 +78,13 @@ a { text-decoration: none}
     background-color: rgba(240, 248, 255, 0.2);
     padding: 1%;
     border: aliceblue;
-    border-radius: 5px;
+    border-radius: 1vw;
     width: 6vw;
     min-width: 6vw;
     max-width: 6vw;
-    min-height:4vh ;
-    max-height: 4vh;
-    height: 4vh;
+    min-height:3vh ;
+    max-height: 3vh;
+    height: 3vh;
     font-size: 1vw;
     text-align: center;
 }
@@ -91,7 +93,8 @@ a { text-decoration: none}
     background-color: rgba(240, 248, 255, 0.49);
     padding: 8px;
     border: aliceblue;
-    border-radius: 5px;}
+    border-radius: 1vw;
+}
 
 .dropdownMenu {
 
@@ -153,7 +156,7 @@ a { text-decoration: none}
     justify-content: left;
 }
 .dropdownMenu-content a {
-    color: black;
+    color: #344f21;
     padding: 8.5% 9%;
     text-decoration: none;
     display: block;
@@ -245,7 +248,7 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 
 .footer {
     background-color: aliceblue;
-    width: 100%;
+    width: calc(1840 / 1840 * 100%);
     position: absolute;
     top: 105%;
     height: 15vh;
@@ -258,7 +261,7 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     align-items: center;
     white-space: nowrap;
     justify-content: space-between;
-    width: 60%;
+    width: 95%;
 }
 .info {
     font-family: 'Ubuntu', sans-serif;
@@ -267,7 +270,7 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     display: inline-block;
     width: 20vw;
     vertical-align: top;
-    font-size: 2vh;
+    font-size: 2.5vh;
 }
 .info1 {
     font-family: 'Ubuntu', sans-serif;
@@ -276,7 +279,7 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     display: inline-block;
     width: 10vw;
     vertical-align: top;
-    font-size: 2vh;
+    font-size: 2.5vh;
 }
 .info1:hover{background-color: aliceblue}
 
@@ -291,7 +294,9 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 
 .gameBody{
     background: #e4e7ea;
-    width: 100%;
+    background-size: cover;
+    width: calc(1840 / 1840 * 100%);
+    height: 115vh;
     flex-wrap: wrap;
     margin: auto;
     display: inline-block;
@@ -300,9 +305,9 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 
 .gameMenu{
     background-color: aliceblue;
-    width: 100%;
-    height: 10%;
     top: 0;
+    width: calc(1840 / 1840 * 100%);
+    height: 10vh;
     display: flex;
     justify-content:center;
     position: fixed;
@@ -312,89 +317,158 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 .gameName {
     color: #344f21;
     font-family: 'Ubuntu', sans-serif;
-    flex-direction: row;
+    width: 12vw;
+    min-width: 12vw;
+    max-width: 12vw;
+    min-height:4vh ;
+    max-height: 4vh;
+    height: 4vh;
+    font-size: 1vw;
 }
 .gameName:hover{background-color: rgba(255, 255, 255, 0);}
 
 .gameAccent {
     background-color: #71af4e;
     color: aliceblue;
-    padding: 8px;
-    border: #71af4e;
-    border-radius: 5px;
     font-family: 'Ubuntu', sans-serif;
-    flex-direction: row;
+    padding: 1%;
+    border: #71af4e;
+    border-radius: 1vw;
+    width: 8vw;
+    min-width: 8vw;
+    max-width: 8vw;
+    min-height: 3vh ;
+    max-height: 3vh;
+    height: 3vh;
+    font-size: 1vw;
+    text-align: center;
 }
 .gameAccent:hover{
     background-color: #7bc256;
     color: aliceblue;
+    border-radius: 1vw;
 }
 
 .gameBlock {
     font-family: 'Ubuntu', sans-serif;
     color: #344f21;
     background-color: rgba(240, 248, 255, 0.2);
-    padding: 8px;
+    padding: 1%;
     border: aliceblue;
-    border-radius: 5px;
+    border-radius: 1vw;
+    width: 6vw;
+    min-width: 6vw;
+    max-width: 6vw;
+    min-height:3vh ;
+    max-height: 3vh;
+    height: 3vh;
+    font-size: 1vw;
+    text-align: center;
 }
 .gameBlock:hover{
     color: #565555;
     background-color: #d5d7e0;
-    padding: 8px;
+    padding: 1%;
     border: aliceblue;
-    border-radius: 5px;
+    border-radius: 1vw;
 }
 
 .gameDropdownMenu {
-    position: relative;
     display: inline-block;
+    width: 6vw;
+    min-width: 6vw;
+    max-width: 6vw;
+    min-height:10vh ;
+    max-height: 10vh;
+    height: 10vh;
+    align-items: center;
+    font-size: 1vw;
 }
 
 .gameMenubtn {
     background-color: rgba(240, 248, 255, 0);
     color: #639643;
-    padding: 8px;
+    padding: 1%;
     border: rgba(240, 248, 255, 0);
     border-radius: 5px;
     font-family: 'Ubuntu', sans-serif;
+    min-width: 6vw;
+    max-width: 6vw;
+    width: 6vw;
+    min-height:10vh ;
+    max-height: 10vh;
+    height: 10vh;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .gameDropdownMenu-content {
     display: none;
-    position: absolute;
+    position: static;
     background-color: aliceblue;
-    padding: 8px;
-    border-radius: 0 5px 5px 5px;
-    min-width: 160px;
+    padding: 1%;
+    border-radius: 0 1% 1% 1%;
+    min-width: 10vw;
+    max-width: 10vw;
+    width: 10vw;
+    min-height:18vh ;
+    max-height: 18vh;
+    height: 18vh;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
     font-family: 'Ubuntu', sans-serif;
+    justify-content: left;
 }
 
 .gameDropdownMenu-content a{
     color: #344f21;
-    padding: 12px 16px;
+    padding: 8.5% 9%;
     text-decoration: none;
     display: block;
+    background-color: rgba(255, 20, 147, 0);
+    width: 8vw;
+    min-width: 8vw;
+    max-width: 8vw;
+    min-height: 3vh ;
+    max-height: 3vh;
+    height: 3vh;
+    font-size: 1vw;
 }
+a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 
-.gameDropdownMenu:hover .gameDropdownMenu-content {display: block; }
-.gameDropdownMenu:hover .gameMenubtn {background-color: aliceblue; border: aliceblue; border-radius: 5px 5px 0 0; }
+.gameDropdownMenu:hover .gameDropdownMenu-content {display: block; position: fixed; }
+.gameDropdownMenu:hover .gameMenubtn {
+    background-color: aliceblue;
+    border: aliceblue;
+    border-radius: 5px 5px 0 0;
+    min-width: 6vw;
+    max-width: 6vw;
+    width: 6vw;
+    min-height:10vh ;
+    max-height: 10vh;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+}
 
 .gameMain{
     display: flex;
     position: absolute;
-    top: 20%;
-    left: 25%;
-    width: 745px;
+    top: 20vh;
+    left: 24.5vw;
     flex-flow: column;
 }
 
 .gameSubMain1 {
     background-color: aliceblue;
     display: flex;
-    width: 700px;
-    height: 80px;
+    width: 45.5vw;
+    max-width: 45.5vw;
+    min-width: 45.5vw;
+    height: 12vh;
+    max-height: 12vh;
+    min-height: 12vh;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px 0 20px;
@@ -406,36 +480,45 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 .gameSubMain2 {
     background-color: aliceblue;
     display: flex;
-    width: 700px;
-    left: 300px;
-    height: 100px;
+    width: 45.5vw;
+    max-width: 45.5vw;
+    min-width: 45.5vw;
+    height: 14vh;
+    max-height: 14vh;
+    min-height: 14vh;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px 0 20px;
     border-radius: 5px;
     border: rgba(240, 248, 255, 0);
     margin: 0 0 1px 0;
+    font-size: 1vw;
+    text-align: center;
 }
 
 .default {
     font-family: 'Ubuntu', sans-serif;
     flex-direction: row;
     color: #344f21;
-    font-size: 20px;
-}
-
-.findGame{
-    font-family: 'Ubuntu', sans-serif;
-    flex-direction: row;
-    color: #639643;
+    font-size: 3vh;
+    width: 12vw;
+    min-width: 12vw;
+    max-width: 12vw;
+    min-height:4vh ;
+    max-height: 4vh;
+    height: 4vh;
+    text-align: center;
 }
 
 .imgPlus{
     border-radius: 100px; /* Радиус скругления */
-    border: 3px aliceblue; /* Параметры рамки */
-    box-shadow: 0 0 7px rgba(102, 102, 102, 0); /* Параметры тени */
-    width: 70px;
-    height: 70px;
+    width: 5vw;
+    min-width: 5vw;
+    max-width: 5vw;
+    height: 11vh;
+    max-height: 11vh;
+    min-height: 11vh;
+    margin: 0;
 }
 
 
@@ -443,10 +526,20 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     font-family: 'Ubuntu', sans-serif;
     flex-direction: row;
     color: #639643;
-    font-size: 20px;
+    font-size: 3vh;
+    width: 12vw;
+    min-width: 12vw;
+    max-width: 12vw;
+    min-height:4vh ;
+    max-height: 4vh;
+    height: 4vh;
+    text-align: center;
+    border-radius: 1vw;
+    padding: 1vw;
 }
 .playerName:hover{
     background-color: #e1e9ef;
+    border-radius: 1vw;
 
 }
 
@@ -455,10 +548,17 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     flex-direction: row;
     color: rgba(240, 248, 255, 0);
     background-color: rgba(220, 20, 60, 0);
-    font-size: 20px;
-    padding: 10px;
+    font-size: 3vh;
+    padding: 1vw;
     border: rgba(220, 20, 60, 0);
-    border-radius: 5px;
+    border-radius: 1vw;
+    width: 8vw;
+    min-width: 8vw;
+    max-width: 8vw;
+    min-height:4vh ;
+    max-height: 4vh;
+    height: 4vh;
+    text-align: center;
 }
 .hiddenDelete:hover{
     color: aliceblue;
@@ -469,56 +569,81 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
 .profileMain{
     display: flex;
     position: absolute;
-    top: 13%;
-    left: 20%;
-    width: 210px;
+    top: 21vh;
+    left: 21.5vw;
     flex-flow: column;
-
 }
 
 .profileImg{
-    border-radius: 100px; /* Радиус скругления */
-    border: 4px solid #639643; /* Параметры рамки */
+    border-radius: 100%; /* Радиус скругления */
     box-shadow: 0 0 7px rgba(102, 102, 102, 0); /* Параметры тени */
-    width: 200px;
-    height: 200px;
+    width: 13vw;
+    min-width: 13vw;
+    max-width: 13vw;
+
 
 }
 
 .profileMain1{
-
     display: flex;
-    position: absolute;
-    width: 25%;
-    height: 40%;
+    width: 38vw;
+    min-width: 38vw;
+    max-width: 38vw;
+    min-height:25vh ;
+    max-height: 25vh;
+    height: 25vh;
     flex-flow: column;
     justify-content: space-between;
-    background-color: #000000;
-    border-radius: 5px;
-    border: rgba(240, 248, 255, 0);
-    padding: 10px;
 
+}
+
+.profileMain2 {
+    display: flex;
+    width: 40vw;
+    height: 10vh;
+    justify-content: space-between;
+    padding: 2vh;
+    text-align: center;
+    align-items: end;
 }
 
 .profileName{
     font-family: 'Ubuntu', sans-serif;
     flex-direction: row;
     color: #344f21;
-    font-size: 40px;
+    font-size: 5vh;
+    padding: 1vh;
 }
 
 .profileMainColumn{
 
     display: flex;
     position: absolute;
-    top: 15%;
-    left: 35%;
-    width: 50%;
-    height: 50%;
+    top: 20vh;
+    left: 35.5vw;
+    width: 42vw;
+    height: 50vh;
     flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
     background-color: aliceblue;
-    border-radius: 5px;
-    border: rgba(240, 248, 255, 0);
-    padding: 10px;
+    border-radius: 1vw;
+}
 
+.defaultFixed {
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 3vh;
+    width: 10vw;
+    min-width: 10vw;
+    max-width: 10vw;
+    min-height:4vh ;
+    max-height: 4vh;
+    height: 4vh;
+    padding: 1vh;
+    text-align: center;
+    background-color: #bbbec4;
+    border: #bbbec4;
+    border-radius: 1vw;
 }

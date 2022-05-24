@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Профиль</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.png" type="image/png">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
@@ -17,14 +17,14 @@
 <body class="gameBody">
 <div class="gameMenu">
     <div class="submenu">
-        <a th:href="@{/}" class="gameName"><img class = logo  th:src="@{/img/gameLogo.png}">Carcassonne Online</a>
-        <a th:href="@{/gameLobby}" class="gameAccent">ПОИСК ИГР</a>
-        <a  th:href="@{/friends}" class="gameBlock" >Друзья</a>
+        <a href="index.html" class="gameName"><img class = logo src="img/gameLogo.png">Carcassonne Online</a>
+        <a href="gameLobby.html" class="gameAccent">ПОИСК ИГР</a>
+        <a href="friends.html"class="gameBlock" >Друзья</a>
         <a href="#cont" class="gameBlock">Контакты</a>
         <div class="gameDropdownMenu">
-            <button class="gameMenubtn"><img class="img" th:src="@{/img/avatar.jpg}" ></button>
+            <button class="gameMenubtn"><img class="img" src="img/avatar.jpg"></button>
             <div class="gameDropdownMenu-content">
-                <a  th:href="@{/profile}">Иванов Иван</a>
+                <a href="profile.html">Иванов Иван</a>
                 <a href="#">Рейтинг - 0</a>
                 <a href="#">Выйти</a>
             </div>
@@ -32,7 +32,7 @@
     </div>
 </div>
 <div class="profileMain">
-    <div><img class="profileImg"  th:src="@{/img/avatar.jpg}" ></div>
+    <div><img class="profileImg" src="img/avatar.jpg"></div>
 </div>
 <div class="profileMainColumn">
     <div class="profileMain1">
@@ -40,10 +40,10 @@
         <div class="default">Рейтинг - 0</div>
         <div class="default">IvanIvanov@mail.ru</div>
     </div>
-    <div class="gameSubMain2">
-        <div class="default">Игр сыграно: 0</div>
-        <div class="default">Побед: 0</div>
-        <div class="default">Друзей: 4</div>
+    <div class="profileMain2">
+        <div class="defaultFixed">Игр сыграно: 0</div>
+        <div class="defaultFixed">Побед: 0</div>
+        <div class="defaultFixed">Друзей: 4</div>
     </div>
 </div>
 
@@ -53,7 +53,7 @@
     <div class="subFooter">
         <div class="info">Сайт разработан в учебных целях в рамках РГР по дисциплине "Технологии и методы программирования"</div>
         <div class="info1">Разработчики Максутов Ильдар Бахмацкий Юрий Иванов Максим</div>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" th:src="@{/img/vk.png}" > </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" src="img/vk.png"> </a>
     </div>
 </div>
 </body>
