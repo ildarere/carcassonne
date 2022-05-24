@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,10 +23,14 @@
         <a href="#cont" class="block">Контакты</a>
         <div class="dropdownMenu">
             <button class="menubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
-            <div class="dropdownMenu-content">
+            <div class="dropdownMenu-content" sec:authorize="isAuthenticated()">
                 <a href="profile.html">Иванов Иван</a>
                 <a href="#">Рейтинг - 0</a>
-                <a href="#">Выйти</a>
+                <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
+            </div>
+            <div class="dropdownMenu-content" sec:authorize="isAnonymous()">
+                <a class="logout" href="#" th:href="@{/user/registration}">Registration</a>
+                <a class="logout" href="#" th:href="@{/login}">Login</a>
             </div>
         </div>
     </div>

@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-//import javax.validation.Valid;
+
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +21,7 @@ public class UserServiceDomain implements UserService {
 
     @Autowired
     UserRepository userRepository;
-    
+
     @Autowired
     @Lazy
     private PasswordEncoder passEncoder;
@@ -48,13 +49,13 @@ public class UserServiceDomain implements UserService {
         return userRepository.findByEmail(email);
     }
 
-//	@Override
-//	public void update(@Valid UserForm userForm) {
-//		User u = new User();
-//		BeanUtils.copyProperties(userForm, u, "password");
-//		u.setPassword(passEncoder.encode(userForm.getPassword()));
-//		u.setRoles(Role.USER.toString());
-//
-//		userRepository.save(u);
-//	}
+    @Override
+    public void update(@Valid UserForm userForm) {
+        User u = new User();
+        BeanUtils.copyProperties(userForm, u, "password");
+        u.setPassword(passEncoder.encode(userForm.getPassword()));
+        u.setRoles(Role.USER.toString());
+
+        userRepository.save(u);
+    }
 }

@@ -4,7 +4,7 @@ import com.example.carcassonne.domain.model.User;
 import com.example.carcassonne.web.form.user.UserForm;
 
 
-//import javax.validation.Valid;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,5 +15,5 @@ public interface UserService {
     Optional<User> findByEmail(String email);
 
     boolean isUserWithEmailExist(String email);
-	//void update(@Valid UserForm userForm);
+	void update(@Valid UserForm userForm);
 }
