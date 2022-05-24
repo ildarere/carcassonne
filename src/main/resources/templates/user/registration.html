@@ -26,13 +26,13 @@
 	<form th:action="@{/user/registration}" th:method="post" th:object="${userForm}" autocomplete="off">
 		<div class="form-group">
 			<label>Логин: </label>
-			<input class="form-group" placeholder="например, 1@carc.me" checked="text" th:field="*{email}" autocomplete="false">
+			<input class="form-group" placeholder="например, 1@carc.me" checked="text" th:field="*{email}" autocomplete="off">
 			<span th:errors="*{email}"></span>
 		</div>
 
 		<div class="form-group">
 			<label>Никнейм: </label>
-			<input class="form-group"  placeholder="например, суперИгрок500"type="text" th:field="*{name}" autocomplete="false">
+			<input class="form-group"  placeholder="например, суперИгрок500"type="text" th:field="*{name}" autocomplete="off">
 			<span th:errors="*{name}"></span>
 		</div>
 
