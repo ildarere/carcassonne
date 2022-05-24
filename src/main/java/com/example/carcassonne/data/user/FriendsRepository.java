@@ -10,6 +10,7 @@ import java.util.List;
 public interface FriendsRepository extends CrudRepository<Friends, Long> {
     @Query(" select * from friends where friends.first_id = :id or friends.second_id = :id")
     List<Friends> findById(int id);
-
+    @Query(" select COUNT(*) as count from friends where friends.first_id = :id or friends.second_id = :id")
+    int countOfFriends(int id);
 
 }

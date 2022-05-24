@@ -21,6 +21,19 @@ public class UserData implements Persistable<Long> {
     private  String name;
     private int rating ;
     private int gamesCount ;
+
+    public int getRating() {
+        return rating;
+    }
+
+    public int getGamesCount() {
+        return gamesCount;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
     private int wins ;
 
 
@@ -75,9 +88,13 @@ public class UserData implements Persistable<Long> {
 
     @Override
     public String toString() {
-        return "UserModel{" +
+        return "UserData{" +
                 "id=" + id +
+                ", isNew=" + isNew +
                 ", name='" + name + '\'' +
+                ", rating=" + rating +
+                ", gamesCount=" + gamesCount +
+                ", wins=" + wins +
                 '}';
     }
 }

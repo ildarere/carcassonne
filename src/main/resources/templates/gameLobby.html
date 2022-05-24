@@ -24,8 +24,8 @@
             <div class="gameDropdownMenu">
                 <button class="gameMenubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
                 <div class="gameDropdownMenu-content">
-                    <a th:href="@{/profile}">Иванов Иван</a>
-                    <a href="#">Рейтинг - 0</a>
+                    <a th:href="@{/profile}" th:text="${currentName}">Иванов Иван</a>
+                    <a href="#" th:text="${currentRating}">Рейтинг - 0</a>
                     <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
                 </div>
                 <div class="dropdownMenu-content" sec:authorize="isAnonymous()">

@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface UserDataRepository extends CrudRepository<UserData, Long> {
 
-
-
+    @Query("select * from user_information where user_information.id = :id")
+    UserData findDataById(Long id);
 }

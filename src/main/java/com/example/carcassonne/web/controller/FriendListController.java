@@ -2,6 +2,7 @@ package com.example.carcassonne.web.controller;
 
 import com.example.carcassonne.domain.model.Friends;
 import com.example.carcassonne.domain.model.User;
+import com.example.carcassonne.domain.model.UserData;
 import com.example.carcassonne.domain.user.UserService;
 import com.example.carcassonne.web.spring.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +28,22 @@ public class FriendListController {
             List<Friends> fr =userService.findFriendsById(currentId);
             for (Friends i: fr) {
                 if(i.getFirstFriend()==currentId){
-
                 }
             }
-
         }
 
 
-        System.out.println(userService.findByNameContaining("%a%").toString());
+        UserData userData= userService.findDataById(((UserDetailsImpl)principal).getId());
+        model.addAttribute("currentName",  ((UserDetailsImpl) principal).getName());
+        model.addAttribute("currentRating","Рейтинг - " + userData.getRating());
+
+
+
+//        System.out.println(userService.findByNameContaining("%a%").toString());
         return "/friends";
     }
+
+
+
 }
 

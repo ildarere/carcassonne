@@ -50,6 +50,11 @@ public class UserServiceDomain implements UserService {
     }
 
     @Override
+    public int countOfFriends(int id) {
+        return friendsRepository.countOfFriends(id);
+    }
+
+    @Override
     public boolean isUserWithEmailExist(String email) {
         return userRepository.countByEmail(email) != 0 ? true : false;
     }
@@ -67,6 +72,11 @@ public class UserServiceDomain implements UserService {
     @Override
     public List<UserData> findByNameContaining(String name) {
         return userRepository.findByNameContaining(name);
+    }
+
+    @Override
+    public UserData findDataById(Long id) {
+        return userDataRepository.findDataById(id);
     }
 
     @Override

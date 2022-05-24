@@ -16,9 +16,9 @@ public interface UserService {
     Optional<User> findByEmailAndEnabledTrue(String email);
     Optional<User> findByEmail(String email);
     List<UserData> findByNameContaining(String name);
-
+    UserData findDataById(Long id);
     List<Friends> findFriendsById(int id);
-
+    int countOfFriends(int id);
     boolean isUserWithEmailExist(String email);
 	void update(@Valid UserForm userForm);
 }

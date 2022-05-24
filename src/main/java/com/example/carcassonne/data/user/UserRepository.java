@@ -20,4 +20,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query("select user.id, user.name from user where user.name like :name")
     List<UserData> findByNameContaining(@Param("name") String name);
 
+
 }
