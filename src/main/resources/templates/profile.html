@@ -35,12 +35,12 @@
     <div class="profileMain1">
         <div class="profileName" th:utext="${name}">Иван Иванов</div>
         <div class="default" th:utext="${rating}">Рейтинг - 0</div>
+        <div >
+            <button id="addFriendBtn" th:disabled="${disable}" th:text="${isFriend}" >Добавить в друзья</button>
 
+        </div>
     </div>
-    <div >
-        <button id="addFriendBtn" th:disabled="${isFriend}" >Добавить в друзья</button>
 
-    </div>
     <div class="profileMain2">
         <div class="defaultFixed" th:utext="${gamesCount}">Игр сыграно: 0</div>
         <div class="defaultFixed" th:utext="${wins}">Побед: 0</div>

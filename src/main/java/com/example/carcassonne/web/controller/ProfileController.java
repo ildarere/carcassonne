@@ -36,7 +36,7 @@ public class ProfileController {
         model.addAttribute("gamesCount","Игр Сыграно: " + userData.getGamesCount() );
         model.addAttribute("currentName",  userData.getName());
         model.addAttribute("currentRating","Рейтинг - " + userData.getRating() );
-        model.addAttribute("isFriend", "true");
+        model.addAttribute("isFriend", "Это ваша страница");
         model.addAttribute("id",  currentId);
 
         return "/profile";
@@ -52,7 +52,8 @@ public class ProfileController {
         boolean isFriend= false;
         for (Friends f: friends) {
             if(currentId==f.getFirstFriend() || currentId==f.getSecondFriend()){
-                model.addAttribute("isFriend", "true");
+                model.addAttribute("isFriend", "Пользователь уже у вас в друзьях");
+                model.addAttribute("disable", "true");
                 isFriend= true;
             }
         }

@@ -731,3 +731,28 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     border-radius: 1vw;
     text-align: center;
 }
+
+#addFriendBtn{
+font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 3vh;
+    width: 30%;
+    height:100%;
+    text-align: center;
+    padding: 1%;
+    vertical-align: center;
+    background-color: aliceblue;
+    border:none;
+    text-decoration:none;
+}
+
+#addFriendBtn:hover{
+background-color: #71af4e;
+    color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 1%;
+    border: #71af4e;
+    border-radius: 1vw;
+    text-align: center;
+}
