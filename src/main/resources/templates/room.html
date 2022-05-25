@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<div th:utext="${message}"></div>
+<body th:id="${roomId}">
+<div id="test" th:utext="${message}"></div>
+<button id="ping" onclick="ping();">P</button>
+<script th:src="@{/js/connected.js}"></script>
 </body>
 </html>

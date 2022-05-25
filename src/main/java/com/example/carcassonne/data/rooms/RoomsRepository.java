@@ -1,6 +1,7 @@
 package com.example.carcassonne.data.rooms;
 
 import com.example.carcassonne.domain.model.Room;
+import com.example.carcassonne.domain.model.UserData;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -23,4 +24,9 @@ public interface RoomsRepository extends CrudRepository<Room, Long> {
     @Query("Select ready from rooms where id = :id")
     int isReady(int id);
 
+    @Query("Select roomId," +
+        " user_information.id, user_information.rating, user_information.games_count, user_information.wins, user_information.name " +
+        "From users_in_rooms left join user_information on user_information.id = users_in_rooms.userid " +
+        "where roomId = :id")
+    List<UserData> getUsersFromRoom(int id);
 }

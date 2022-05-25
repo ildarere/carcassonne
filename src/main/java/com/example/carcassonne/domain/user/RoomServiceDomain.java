@@ -2,6 +2,7 @@ package com.example.carcassonne.domain.user;
 
 import com.example.carcassonne.data.rooms.RoomsRepository;
 import com.example.carcassonne.domain.model.Room;
+import com.example.carcassonne.domain.model.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,5 +50,10 @@ public class RoomServiceDomain implements RoomService{
     @Override
     public boolean isRoomReady(int id) {
         return roomsRepository.isReady(id) == 1 ? true : false;
+    }
+
+    @Override
+    public List<UserData> getUsersFromRoom(int id) {
+        return roomsRepository.getUsersFromRoom(id);
     }
 }
