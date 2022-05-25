@@ -85,7 +85,7 @@ public class UserServiceDomain implements UserService {
 
     @Override
     public List<UserData> findByNameContaining(String name) {
-        return userRepository.findByNameContaining(name);
+        return userDataRepository.findByNameContaining(name);
     }
 
     @Override
