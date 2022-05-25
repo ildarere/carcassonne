@@ -42,13 +42,13 @@
   </div>
   <div class="gameSubMain1">
     <div class="default"> Друзья </div>
-    <a class="playerName">Иванов Иван</a>
+    <a class="playerName" th:href="@{/profile}" th:text="${currentName}">Иванов Иван</a>
   </div>
 
     <div class="gameSubMain2" th:each="friend: ${friendList}">
       <img class="imgPlus" th:src="@{/img/gameLogo.png}">
-      <a class="playerName"  th:text="${friend.getName}" > Имя</a>
-      <div class="default" th:utext="${friend.getRating}">Рейтинг:100</div>
+      <a class="playerName" th:id="${friend.getId}" th:href="@{/id{id}(id=${friend.getId})}" th:text="${friend.getName}" > Имя</a>
+      <div class="default" th:utext="'Рейтинг: ' +${friend.getRating}">Рейтинг:100</div>
       <div class="hiddenDelete">Удалить</div>
     </div>
 

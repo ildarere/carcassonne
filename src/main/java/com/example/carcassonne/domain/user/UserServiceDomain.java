@@ -108,4 +108,9 @@ public class UserServiceDomain implements UserService {
         System.out.println(um.toString());
         userDataRepository.save(um);
     }
+
+    @Override
+    public void addFriend(int firstId, int secondId) {
+        friendsRepository.addFriend(firstId, secondId);
+    }
 }

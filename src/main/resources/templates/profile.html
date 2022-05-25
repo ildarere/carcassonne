@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
-<body class="gameBody">
+<body th:id="${id}"  class="gameBody">
 <div class="gameMenu">
     <div class="submenu">
         <a th:href="@{/}" class="gameName"><img class = logo th:src="@{/img/gameLogo.png}">Carcassonne Online</a>
@@ -35,7 +35,11 @@
     <div class="profileMain1">
         <div class="profileName" th:utext="${name}">Иван Иванов</div>
         <div class="default" th:utext="${rating}">Рейтинг - 0</div>
-        <div class="default" th:utext="${mail}">IvanIvanov@mail.ru</div>
+
+    </div>
+    <div >
+        <button id="addFriendBtn" th:disabled="${isFriend}" >Добавить в друзья</button>
+
     </div>
     <div class="profileMain2">
         <div class="defaultFixed" th:utext="${gamesCount}">Игр сыграно: 0</div>
@@ -53,5 +57,6 @@
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" th:src="@{/img/vk.png}"> </a>
     </div>
 </div>
+<script th:src="@{/js/addFriend.js}"></script>
 </body>
 </html>

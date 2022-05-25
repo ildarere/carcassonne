@@ -22,4 +22,6 @@ public interface UserService {
     int countOfFriends(int id);
     boolean isUserWithEmailExist(String email);
 	void update(@Valid UserForm userForm);
+
+    void addFriend(int firstId, int secondId);
 }
