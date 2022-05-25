@@ -73,6 +73,7 @@ public class UserServiceDomain implements UserService {
         return userRepository.countByEmail(email) != 0 ? true : false;
     }
 
+
     @Override
     public Optional<User> findByEmailAndEnabledTrue(String email) {
         return userRepository.findByEmailAndEnabledTrue(email);
@@ -112,5 +113,10 @@ public class UserServiceDomain implements UserService {
     @Override
     public void addFriend(int firstId, int secondId) {
         friendsRepository.addFriend(firstId, secondId);
+    }
+
+    @Override
+    public boolean isUserWithIdExist(int id) {
+        return userRepository.countById(id) != 0 ? true : false;
     }
 }

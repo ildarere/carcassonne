@@ -9,4 +9,7 @@ public  interface RoomService {
     void setRoomReady(int roomId);
     List<Room> getAllRooms();
     List<Room> findAllByName(String name);
+    List<Room> findAllById(int id);
+    boolean isRoomWithIdExist(int id);
+    boolean isRoomReady(int id);
 }

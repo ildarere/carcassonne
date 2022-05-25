@@ -1,46 +1,50 @@
 package com.example.carcassonne.domain.model;
 
+import org.apache.catalina.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Table("rooms")
 public class Room {
     @Id
-    private int roomId;
+    private int id;
     @Transient
     private  boolean isNew;
     @Column("max_size")
     private int maxSize;
     @Column("ready")
     private int isReady;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Column("name")
     private String name;
 
-    public Room(int roomId, boolean isNew, int maxSize, int isReady, String name) {
-        this.roomId = roomId;
+    private List<UserData> userList = new ArrayList<>();
+
+    public Room(int id, boolean isNew, int maxSize, int isReady, String name) {
+        this.id = id;
         this.isNew = isNew;
         this.maxSize = maxSize;
         this.isReady = isReady;
         this.name = name;
     }
 
-    public int getRoomId() {
-        return roomId;
+    public void addUser(UserData user){
+        userList.add(user);
+    }
+    public UserData getUserById(int id){
+        return (UserData) userList.stream().filter(userData -> userData.getId()==id);
     }
 
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean isNew() {
@@ -65,5 +69,13 @@ public class Room {
 
     public void setIsReady(int isReady) {
         this.isReady = isReady;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

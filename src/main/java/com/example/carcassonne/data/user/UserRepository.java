@@ -18,6 +18,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
     Optional<User> findByEmailAndEnabledTrue(String email);
 
 
-
-
+    int countById(int id);
 }

@@ -24,4 +24,6 @@ public interface UserService {
 	void update(@Valid UserForm userForm);
 
     void addFriend(int firstId, int secondId);
+
+    boolean isUserWithIdExist(int id);
 }

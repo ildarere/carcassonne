@@ -3,16 +3,20 @@ package com.example.carcassonne.domain.user;
 import com.example.carcassonne.data.rooms.RoomsRepository;
 import com.example.carcassonne.domain.model.Room;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class RoomServiceDomain implements RoomService{
+
     @Autowired
     RoomsRepository roomsRepository;
+
     @Override
     public void createRoom(Room room){
-        roomsRepository.createRoom(room.getRoomId(),room.getMaxSize(),room.getIsReady(),room.getName());
+        roomsRepository.createRoom(room.getId(),room.getMaxSize(),room.getIsReady(),room.getName());
     }
 
     @Override
@@ -32,4 +36,18 @@ public class RoomServiceDomain implements RoomService{
         return roomsRepository.findAllRoomsByName(name);
     }
 
+    @Override
+    public List<Room> findAllById(int id) {
+        return roomsRepository.findAllRoomsById(id);
+    }
+
+    @Override
+    public boolean isRoomWithIdExist(int id) {
+        return roomsRepository.countById(id) != 0 ? true : false;
+    }
+
+    @Override
+    public boolean isRoomReady(int id) {
+        return roomsRepository.isReady(id) == 1 ? true : false;
+    }
 }
