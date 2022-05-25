@@ -730,29 +730,97 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     border: #71af4e;
     border-radius: 1vw;
     text-align: center;
+    margin-bottom: 50px;
 }
 
-#addFriendBtn{
-font-family: 'Ubuntu', sans-serif;
-    flex-direction: row;
-    color: #344f21;
-    font-size: 3vh;
-    width: 30%;
-    height:100%;
+.inGameBody{
+    background-color: #71af4e;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 6800px;
+    justify-content: center;
     text-align: center;
-    padding: 1%;
-    vertical-align: center;
+    width: 6900px;
+}
+
+.inGameMenu{
+    display: flex;
+    flex-direction: column;
     background-color: aliceblue;
-    border:none;
-    text-decoration:none;
+    width: 15%;
+    height: 40%;
+    padding: 0.2%;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    position: fixed;
+    top: 10%;
+    left: 1%;
+    padding: 1%;
+    border: aliceblue ;
+    border-radius: 2%;
+    opacity: 0.03;
+}
+.inGameMenu:hover{
+    opacity: 1;
 }
 
-#addFriendBtn:hover{
-background-color: #71af4e;
-    color: aliceblue;
+.tile{
+    width: 100px;
+    height: 100px;
+    margin: 1px;
+}
+
+.field{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin: 1px;
+}
+
+.imgGame{
+    border-radius: 100%; /* Радиус скругления */
+    width: 20%;
+}
+
+.field1{
+    display: flex;
+    flex-direction: row;
+    background-color: #d2d7de;
+    width: 100%;
+    justify-content: space-between;
+    margin: 1px;
+    align-items: center;
+    height: 20%;
+    border: #d2d7de;
+    border-radius: 2%;
+}
+
+#redPlayer{
     font-family: 'Ubuntu', sans-serif;
-    padding: 1%;
-    border: #71af4e;
-    border-radius: 1vw;
-    text-align: center;
+    color: crimson;
+    font-size: 1.1vw;
+    padding: 5%;
+}
+
+#bluePlayer{
+    font-family: 'Ubuntu', sans-serif;
+    color: deepskyblue;
+    font-size: 1.1vw;
+    padding: 5%;
+}
+
+#greenPlayer{
+    font-family: 'Ubuntu', sans-serif;
+    color: darkgreen;
+    font-size: 1.1vw;
+    padding: 5%;
+}
+
+#orangePlayer{
+    font-family: 'Ubuntu', sans-serif;
+    color: goldenrod;
+    font-size: 1.1vw;
+    padding: 5%;
 }

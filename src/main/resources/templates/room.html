@@ -2,11 +2,51 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Идет игра!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
-<body th:id="${roomId}">
-<div id="test" th:utext="${message}"></div>
-<button id="ping" onclick="ping();">P</button>
-<script th:src="@{/js/connected.js}"></script>
+<body id="inGameBody" class="inGameBody">
+<div class="inGameMenu">
+    <div class="field1">
+        <img class="imgGame" th:src="@{/img/avatar.jpg}">
+        <div id="redPlayer">игрок 11232155152</div>
+    </div>
+    <div class="field1">
+        <img class="imgGame" th:src="@{/img/avatar.jpg}">
+        <div id="bluePlayer">игрок 11232155152</div>
+    </div>
+    <div class="field1">
+        <img class="imgGame" th:src="@{/img/avatar.jpg}">
+        <div id="greenPlayer">игрок 11232155152</div>
+    </div>
+    <div class="field1">
+        <img class="imgGame" th:src="@{/img/avatar.jpg}">
+        <div id="orangePlayer">игрок 11232155152</div>
+    </div>
+</div>
+<script>
+        for(let x=1; x<65; x++) {
+            let div = document.createElement("div");
+            div.className = "field";
+            div.id = "field_" + x;
+            document.body.appendChild(div);
+            for(let y=1; y<65; y++) {
+                let parent = document.querySelector('#field_' + x)
+                let div = document.createElement("div");
+                div.className = "tile";
+                div.id = x + "_" + y;
+                parent.appendChild(div);
+            }
+        }
+</script>
 </body>
 </html>
