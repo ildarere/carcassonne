@@ -246,16 +246,15 @@ a:hover{
 
 .footer {
     background-color: aliceblue;
-    position:  absolute;
-    top: 110vh;
     display: flex;
     justify-content:center;
     height: 15%;
     max-height: 15%;
     min-height: 15%;
-    width: 103.9%;
+    width: 190%;
     align-items: center;
     align-content: center;
+    flex 0 0 auto;
 }
 
 .subFooter{
@@ -475,18 +474,21 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     width: 50%;
     top: 20vh;
     left: 25vw;
+    height 100%;
+    align-items: center;
 }
 
 .gameSubMain1 {
     background-color: aliceblue;
     display: flex;
-    height: 120%;
+    height: 140%;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px 0 20px;
     margin: 0 0 2px 0;
     border-radius: 5px;
     border: rgba(240, 248, 255, 0);
+    width:80%;
 }
 
 .gameSubMain2 {
@@ -501,6 +503,8 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     margin: 0 0 1px 0;
     font-size: 1vw;
     text-align: center;
+    flex 1 0 auto;
+    width:80%;
 }
 
 .default {
@@ -716,21 +720,45 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     flex-direction: row;
     color: #344f21;
     font-size: 3vh;
-    width: 30%;
-    height:30%;
+    width: 35%;
+    height:35%;
     text-align: center;
-    padding: 1%;
     vertical-align: center;
+
 }
 .findButton:hover{
     background-color: #71af4e;
+    color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+    border: #71af4e;
+    border-radius: 1vw;
+    text-align: center;
+    padding: 1%;
+}
+
+#addFriendBtn{
+font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 3vh;
+    width: 30%;
+    height:100%;
+    text-align: center;
+    padding: 1%;
+    vertical-align: center;
+    background-color: aliceblue;
+    border:none;
+    text-decoration:none;
+}
+
+#addFriendBtn:hover{
+background-color: #71af4e;
     color: aliceblue;
     font-family: 'Ubuntu', sans-serif;
     padding: 1%;
     border: #71af4e;
     border-radius: 1vw;
     text-align: center;
-    margin-bottom: 50px;
 }
 
 .inGameBody{
