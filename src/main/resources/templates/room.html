@@ -13,25 +13,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 </head>
-<body id="inGameBody" class="inGameBody">
-<div class="inGameMenu">
+<body th:id="${id}" class="inGameBody">
+<div id="inGameMenu" class="inGameMenu">
     <div class="field1">
         <img class="imgGame" th:src="@{/img/avatar.jpg}">
         <div id="redPlayer">игрок 11232155152</div>
     </div>
-    <div class="field1">
-        <img class="imgGame" th:src="@{/img/avatar.jpg}">
-        <div id="bluePlayer">игрок 11232155152</div>
-    </div>
-    <div class="field1">
-        <img class="imgGame" th:src="@{/img/avatar.jpg}">
-        <div id="greenPlayer">игрок 11232155152</div>
-    </div>
-    <div class="field1">
-        <img class="imgGame" th:src="@{/img/avatar.jpg}">
-        <div id="orangePlayer">игрок 11232155152</div>
-    </div>
+<!--    <div class="field1">-->
+<!--        <img class="imgGame" th:src="@{/img/avatar.jpg}">-->
+<!--        <div id="bluePlayer">игрок 11232155152</div>-->
+<!--    </div>-->
+<!--    <div class="field1">-->
+<!--        <img class="imgGame" th:src="@{/img/avatar.jpg}">-->
+<!--        <div id="greenPlayer">игрок 11232155152</div>-->
+<!--    </div>-->
+<!--    <div class="field1">-->
+<!--        <img class="imgGame" th:src="@{/img/avatar.jpg}">-->
+<!--        <div id="orangePlayer">игрок 11232155152</div>-->
+<!--    </div>-->
 </div>
 <script>
         for(let x=1; x<65; x++) {
@@ -48,5 +50,6 @@
             }
         }
 </script>
+<script th:src="@{/js/app.js}"></script>
 </body>
 </html>
