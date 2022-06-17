@@ -37,8 +37,8 @@
 </div>
 <div class="gameMain">
   <div class="gameSubMain1">
-    <div class="findButton"> Поиск </div>
-    <div><input type="text" autocomplete="off" class="finder"></div>
+    <div id="findButton" class="findButton"> Поиск </div>
+    <div><input id="findField" type="text" autocomplete="off" class="finder"></div>
   </div>
   <div class="gameSubMain1">
     <div class="default"> Друзья </div>
@@ -51,32 +51,8 @@
       <div class="default" th:utext="'Рейтинг: ' +${friend.getRating}">Рейтинг:100</div>
       <div class="hiddenDelete">Удалить</div>
     </div>
-  <div class="gameSubMain2" th:each="friend: ${friendList}">
-    <img class="imgPlus" th:src="@{/img/gameLogo.png}">
-    <a class="playerName" th:id="${friend.getId}" th:href="@{/id{id}(id=${friend.getId})}" th:text="${friend.getName}" > Имя</a>
-    <div class="default" th:utext="'Рейтинг: ' +${friend.getRating}">Рейтинг:100</div>
-    <div class="hiddenDelete">Удалить</div>
-  </div>
-  <div class="gameSubMain2" th:each="friend: ${friendList}">
-    <img class="imgPlus" th:src="@{/img/gameLogo.png}">
-    <a class="playerName" th:id="${friend.getId}" th:href="@{/id{id}(id=${friend.getId})}" th:text="${friend.getName}" > Имя</a>
-    <div class="default" th:utext="'Рейтинг: ' +${friend.getRating}">Рейтинг:100</div>
-    <div class="hiddenDelete">Удалить</div>
-  </div>
-  <div class="gameSubMain2" th:each="friend: ${friendList}">
-    <img class="imgPlus" th:src="@{/img/gameLogo.png}">
-    <a class="playerName" th:id="${friend.getId}" th:href="@{/id{id}(id=${friend.getId})}" th:text="${friend.getName}" > Имя</a>
-    <div class="default" th:utext="'Рейтинг: ' +${friend.getRating}">Рейтинг:100</div>
-    <div class="hiddenDelete">Удалить</div>
-  </div>
-  <div id="cont" class="footer">
-    <div class="subFooter">
-      <div class="info">Сайт разработан в учебных целях в рамках РГР по дисциплине "Технологии и методы программирования"</div>
-      <div class="info1">Разработчики Максутов Ильдар Бахмацкий Юрий Иванов Максим</div>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" th:src="@{/img/vk.png}"> </a>
-    </div>
-  </div>
-</div>
 
+</div>
+<script th:src="@{/js/FriendList.js}"></script>
 </body>
 </html>

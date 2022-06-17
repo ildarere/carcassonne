@@ -85,4 +85,10 @@ public class ProfileController {
         int currentId =Math.toIntExact(((UserDetailsImpl) principal).getId());
         userService.addFriend(currentId, id);
     }
+    @PostMapping(path = "/id{id}/ban", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String ban(@RequestParam(name = "id", required = false)int id) {
+        userService.setEnabledFalse(id);
+        return "";
+    }
 }

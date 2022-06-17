@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Профиль</title>
@@ -40,7 +40,9 @@
 
         </div>
     </div>
-
+    <div sec:authorize="hasAuthority('ADMIN')">
+        <a  id="BanUser" class="">Заблокировать пользователя</a>
+    </div>
     <div class="profileMain2">
         <div class="defaultFixed" th:utext="${gamesCount}">Игр сыграно: 0</div>
         <div class="defaultFixed" th:utext="${wins}">Побед: 0</div>
@@ -58,5 +60,6 @@
     </div>
 </div>
 <script th:src="@{/js/addFriend.js}"></script>
+<script sec:authorize="hasAuthority('ADMIN')" th:src="@{/js/ban.js}"></script>
 </body>
 </html>

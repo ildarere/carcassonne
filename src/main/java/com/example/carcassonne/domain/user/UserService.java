@@ -26,4 +26,6 @@ public interface UserService {
     boolean isUserWithIdExist(int id);
     long getIdByEmail(String email);
     void setEnabledTrue(long id);
+
+    void setEnabledFalse(int id);
 }

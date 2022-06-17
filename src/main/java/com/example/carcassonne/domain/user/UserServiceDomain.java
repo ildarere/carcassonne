@@ -86,6 +86,7 @@ public class UserServiceDomain implements UserService {
 
     @Override
     public List<UserData> findByNameContaining(String name) {
+        name = "%"+name+"%";
         return userDataRepository.findByNameContaining(name);
     }
 
@@ -128,5 +129,10 @@ public class UserServiceDomain implements UserService {
     @Override
     public void setEnabledTrue(long id) {
         userRepository.EnabledTrue(id);
+    }
+
+    @Override
+    public void setEnabledFalse(int id) {
+        userRepository.EnabledFalse(id);
     }
 }

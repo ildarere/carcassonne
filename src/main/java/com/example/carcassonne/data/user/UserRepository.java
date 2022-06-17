@@ -25,4 +25,10 @@ public interface UserRepository extends CrudRepository<User, Long> {
     void EnabledTrue(long id);
 
     int countById(int id);
+
+    @Query("update user " +
+            " set enabled = 0" +
+            " where id = :id ")
+    @Modifying
+    void EnabledFalse(int id);
 }

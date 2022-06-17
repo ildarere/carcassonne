@@ -6,11 +6,14 @@ import com.example.carcassonne.domain.model.UserData;
 import com.example.carcassonne.domain.user.UserService;
 import com.example.carcassonne.web.spring.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -35,6 +38,12 @@ public class FriendListController {
        //findByNameContaining();
 //        System.out.println(.toString());
         return "/friends";
+    }
+    @PostMapping(path = "/friends/find", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<UserData> find(@RequestParam(name = "name", required = false)String name) {
+
+        return userService.findByNameContaining(name);
     }
 
 
