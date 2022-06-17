@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -42,15 +43,16 @@ public class UserController {
 
     @PostMapping("/user/registration")
     public String userRegistrationSubmit(@ModelAttribute @Valid UserForm userForm,
-            BindingResult result) {
+            BindingResult result, RedirectAttributes redirectAttributes) {
 
         if (result.hasErrors()) {
             return "/user/registration";
         } else {
             userService.update(userForm);
+            redirectAttributes.addFlashAttribute("user", userForm);
         }
 
-        return "redirect:/";
+        return "redirect:/send-mail";
     }
 
 }

@@ -10,5 +10,5 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- password 12345
-INSERT INTO `user`(email, name, password, roles, enabled) VALUES ('admin@demo.loc','Admin','$2a$10$oIgilrenfZgb7E5S0jZZ2urA1S/wHSJhXztj3M8PhtOn0e3UefuS.', 'ADMIN,MANAGER,USER', true);
+INSERT INTO `user`(email, name, password, roles, enabled) VALUES ('admin@demo.loc','Admin','$2a$10$oIgilrenfZgb7E5S0jZZ2urA1S/wHSJhXztj3M8PhtOn0e3UefuS.', 'ADMIN,USER', true);
 

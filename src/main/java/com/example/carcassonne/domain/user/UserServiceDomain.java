@@ -119,4 +119,14 @@ public class UserServiceDomain implements UserService {
     public boolean isUserWithIdExist(int id) {
         return userRepository.countById(id) != 0 ? true : false;
     }
+
+    @Override
+    public long getIdByEmail(String email) {
+        return userRepository.getIdByEmail(email);
+    }
+
+    @Override
+    public void setEnabledTrue(long id) {
+        userRepository.EnabledTrue(id);
+    }
 }
