@@ -38,14 +38,13 @@
     <div class="gameMain">
         <div class="gameSubMain1">
             <div class="default">Ожидают игры</div>
-            <a th:href="@{/gameLobby}" class="findButton">Создать игру</a>
+            <a th:href="@{/createRoom}" class="findButton">Создать игру</a>
         </div>
-        <div class="gameSubMain2">
-            <div><img class="imgPlus" th:src="@{/img/normal.svg}"></div>
-            <div><img class="imgPlus" th:src="@{/img/plus.png}"></div>
-            <div><img class="imgPlus" th:src="@{/img/plus.png}"></div>
-            <div><img class="imgPlus" th:src="@{/img/plus.png}"></div>
-            <div><img class="imgPlus" th:src="@{/img/plus.png}"></div>
+        <div class="gameSubMain2" th:each="room: ${roomsList}">
+            <div ><a th:href="@{/room{id}(id=${room.getId})}"><img class="imgPlus" th:src="@{/img/normal.svg}" ></a>
+            <label th:text="${room.getName}">  </label>
+            </div>
+
         </div>
 
         <div id="cont" class="footer">

@@ -1,23 +1,31 @@
 package com.example.carcassonne.domain.user;
 
-import com.example.carcassonne.data.rooms.RoomsRepository;
+import com.example.carcassonne.data.rooms.RoomRepository;
 import com.example.carcassonne.domain.model.Room;
 import com.example.carcassonne.domain.model.UserData;
+import com.example.carcassonne.web.form.room.RoomForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoomServiceDomain implements RoomService{
 
     @Autowired
-    RoomsRepository roomsRepository;
+    RoomRepository roomsRepository;
 
     @Override
-    public void createRoom(Room room){
-        roomsRepository.createRoom(room.getId(),room.getMaxSize(),room.getIsReady(),room.getName());
+    public Room save(Room room) {
+        return roomsRepository.save(room);
+    }
+
+
+    @Override
+    public int createRoom(Room room){
+       return roomsRepository.createRoom(room.getId(),room.getMaxSize(),room.getIsReady(),room.getName());
     }
 
     @Override
@@ -38,8 +46,9 @@ public class RoomServiceDomain implements RoomService{
     }
 
     @Override
-    public List<Room> findAllById(int id) {
-        return roomsRepository.findAllRoomsById(id);
+    public Optional<Room> findRoomById(int id) {
+        System.out.println(roomsRepository.countById(id));
+        return roomsRepository.findRoomById(id);
     }
 
     @Override
@@ -55,5 +64,15 @@ public class RoomServiceDomain implements RoomService{
     @Override
     public List<UserData> getUsersFromRoom(int id) {
         return roomsRepository.getUsersFromRoom(id);
+    }
+
+    @Override
+    public void addUserInRoom(int userId, int roomId) {
+        roomsRepository.addUserInRoom(userId, roomId);
+    }
+
+    @Override
+    public boolean isRoomWithNameExist(String name) {
+        return roomsRepository.countByName(name) != 0 ? true : false;
     }
 }

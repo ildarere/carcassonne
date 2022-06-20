@@ -6,38 +6,37 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Table("rooms")
-public class Room {
+public class Room  implements Serializable {
+    private static final long serialVersionUID = 6216344084865363418L;
     @Id
     private int id;
-    @Transient
-    private  boolean isNew;
+
     @Column("max_size")
     private int maxSize;
+
     @Column("ready")
     private int isReady;
+
     @Column("name")
     private String name;
 
-    private List<UserData> userList = new ArrayList<>();
+    public Room() {
+        super();
+    }
 
-    public Room(int id, boolean isNew, int maxSize, int isReady, String name) {
+    public Room(int id, int maxSize, int isReady, String name) {
         this.id = id;
-        this.isNew = isNew;
         this.maxSize = maxSize;
         this.isReady = isReady;
         this.name = name;
     }
 
-    public void addUser(UserData user){
-        userList.add(user);
-    }
-    public UserData getUserById(int id){
-        return (UserData) userList.stream().filter(userData -> userData.getId()==id);
-    }
+
 
     public int getId() {
         return id;
@@ -47,13 +46,6 @@ public class Room {
         this.id = id;
     }
 
-    public boolean isNew() {
-        return isNew;
-    }
-
-    public void setNew(boolean aNew) {
-        isNew = aNew;
-    }
 
     public int getMaxSize() {
         return maxSize;
@@ -77,5 +69,16 @@ public class Room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+
+                ", maxSize=" + maxSize +
+                ", isReady=" + isReady +
+                ", name='" + name + '\'' +
+                               '}';
     }
 }

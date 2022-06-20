@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Идет игра!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+</head>
+<body >
+<form th:action="@{/createRoom}" th:method="post" th:object="${roomForm}" autocomplete="off">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label>Name: </label>
+        <input type="text" th:field="*{name}" autocomplete="false">
+        <span th:errors="*{name}"></span>
+    </div>
+    <div class="form_radio">
+        <input id="radio-2" type="radio" name="radio" value="2"  th:field="*{maxSize}">
+        <label for="radio-2">2</label>
+
+        <input id="radio-3" type="radio" name="radio" value="3" th:field="*{maxSize}">
+        <label for="radio-3">3</label>
+
+        <input id="radio-4" type="radio" name="radio" value="4" th:field="*{maxSize}">
+        <label for="radio-4">4</label>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" name="submit" id="room-submit"
+               class="stdBtn" value="создать">
+    </div>
+</form>
+
+
+</body>
+</html>
