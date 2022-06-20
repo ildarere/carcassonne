@@ -16,8 +16,9 @@
             <a th:href="@{/createRoom}" class="findButton">Создать игру</a>
         </div>
         <div class="gameSubMain2" th:each="room: ${roomsList}">
-            <div ><a th:href="@{/room{id}(id=${room.getId})}"><img class="imgPlus" th:src="@{/img/normal.svg}" ></a>
-            <label th:text="${room.getName}">  </label>
+            <label class="default" th:text="${room.getName}">  </label>
+            <div class="default">Игроков: </div>
+            <div ><a th:href="@{/room{id}(id=${room.getId})}"><img class="imgPlus" th:src="@{/img/plus.png}" ></a>
             </div>
 
         </div>

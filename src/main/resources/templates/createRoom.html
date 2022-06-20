@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layout}">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Идет игра!</title>
@@ -19,31 +16,38 @@
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 </head>
-<body >
-<form th:action="@{/createRoom}" th:method="post" th:object="${roomForm}" autocomplete="off">
-    <input type="hidden" th:field="*{id}">
-    <div>
-        <label>Name: </label>
-        <input type="text" th:field="*{name}" autocomplete="false">
-        <span th:errors="*{name}"></span>
-    </div>
-    <div class="form_radio">
-        <input id="radio-2" type="radio" name="radio" value="2"  th:field="*{maxSize}">
-        <label for="radio-2">2</label>
+<body class="authBody" >
+<div class="auth">
+    <form th:action="@{/createRoom}" th:method="post" th:object="${roomForm}" autocomplete="off">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label>Название комнаты: </label>
+            <input class="form-group" type="text" th:field="*{name}" autocomplete="false">
+            <span th:errors="*{name}"></span>
+        </div>
+        <div class="form-group">
+            <label>Количество игроков: </label>
+            <div class="form_radio">
+                <input id="radio-2" type="radio" name="radio" value="2"  th:field="*{maxSize}">
+                <label for="radio-2">2</label>
 
-        <input id="radio-3" type="radio" name="radio" value="3" th:field="*{maxSize}">
-        <label for="radio-3">3</label>
+                <input id="radio-3" type="radio" name="radio" value="3" th:field="*{maxSize}">
+                <label for="radio-3">3</label>
 
-        <input id="radio-4" type="radio" name="radio" value="4" th:field="*{maxSize}">
-        <label for="radio-4">4</label>
-    </div>
+                <input id="radio-4" type="radio" name="radio" value="4" th:field="*{maxSize}">
+                <label for="radio-4">4</label>
+            </div>
+        </div>
 
 
-    <div class="form-group">
-        <input type="submit" name="submit" id="room-submit"
-               class="stdBtn" value="создать">
-    </div>
-</form>
+
+        <div class="form-group">
+            <input type="submit" name="submit" id="room-submit"
+                   class="stdBtn" value="создать">
+        </div>
+    </form>
+</div>
+
 
 
 </body>
