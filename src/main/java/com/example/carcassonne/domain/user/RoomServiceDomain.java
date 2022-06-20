@@ -77,7 +77,7 @@ public class RoomServiceDomain implements RoomService{
     }
 
     @Override
-    public void deleteUserFromRoom(int userId, int roomId) {
-        roomsRepository.deleteUserFromRoom(userId, roomId);
+    public void deleteUserFromRoom(int userId) {
+        roomsRepository.deleteUserFromRoom(userId);
     }
 }

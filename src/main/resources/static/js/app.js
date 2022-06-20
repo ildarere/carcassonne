@@ -51,7 +51,9 @@ function sendName() {
 }
 
 function  addInPlayerList(message) {
+    if(currentUserId==null){
     currentUserId =message.id;
+    }
     let div = document.createElement("div");
     div.className = "field1";
     div.id ="User" + message.id;

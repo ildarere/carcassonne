@@ -57,7 +57,7 @@ function FriendsCallback() {
                     div.appendChild(a);
                     div.appendChild(div2);
                     div.appendChild(div3);
-                    }
+                    })
                 } catch(e) {
 
                 }

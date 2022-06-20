@@ -21,5 +21,5 @@ public  interface RoomService {
     List<UserData> getUsersFromRoom(int id);
     void addUserInRoom(int userId, int roomId);
 
-    void deleteUserFromRoom(int userId, int roomId);
+    void deleteUserFromRoom(int userId);
 }

@@ -43,6 +43,6 @@ public interface RoomRepository extends CrudRepository<Room,Integer> {
     @Query("select Count(*) from rooms where name like :name")
     int countByName(String name);
     @Query("DELETE FROM  users_in_rooms " +
-            "where userId = :userId and roomId = :roomId")
-    void deleteUserFromRoom(int userId, int roomId);
+            "where userId = :userId ")
+    void deleteUserFromRoom(int userId);
 }

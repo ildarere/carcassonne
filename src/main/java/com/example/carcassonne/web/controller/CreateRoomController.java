@@ -48,7 +48,7 @@ public class CreateRoomController {
             newRoom.setName(room.getName());
             newRoom.setMaxSize(room.getMaxSize());
             newRoom = roomService.save(newRoom);
-            roomService.addUserInRoom(Math.toIntExact(userDetails.getId()), newRoom.getId());
+//            roomService.addUserInRoom(Math.toIntExact(userDetails.getId()), newRoom.getId());
             return "redirect:/room"+newRoom.getId();
         }
 

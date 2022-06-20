@@ -66,7 +66,7 @@ public class RoomController {
     @SendTo("/topic/room{id}/userDisconnected")
     public int userDisconnect(@Payload int userId,@DestinationVariable("id") int id) throws Exception {
         //delete from db
-        roomService.deleteUserFromRoom(userId, id);
+        roomService.deleteUserFromRoom(userId);
         UserData userData= userService.findDataById((long) userId);
         System.out.println(userData.toString());
         return userId;
