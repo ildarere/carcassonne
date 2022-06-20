@@ -21,7 +21,7 @@ public class UserData implements Persistable<Long> {
     private  String name;
     private int rating ;
     private int gamesCount ;
-
+    private int wins ;
     public int getRating() {
         return rating;
     }
@@ -34,7 +34,7 @@ public class UserData implements Persistable<Long> {
         return wins;
     }
 
-    private int wins ;
+
 
 
 

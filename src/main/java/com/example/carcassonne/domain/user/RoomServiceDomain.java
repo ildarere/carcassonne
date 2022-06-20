@@ -75,4 +75,9 @@ public class RoomServiceDomain implements RoomService{
     public boolean isRoomWithNameExist(String name) {
         return roomsRepository.countByName(name) != 0 ? true : false;
     }
+
+    @Override
+    public void deleteUserFromRoom(int userId, int roomId) {
+        roomsRepository.deleteUserFromRoom(userId, roomId);
+    }
 }

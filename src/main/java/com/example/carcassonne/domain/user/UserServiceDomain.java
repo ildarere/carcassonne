@@ -83,6 +83,10 @@ public class UserServiceDomain implements UserService {
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+    @Override
+    public Optional<UserData> findDataByEmail(String email) {
+        return userDataRepository.findDataByEmail(email);
+    }
 
     @Override
     public List<UserData> findByNameContaining(String name) {

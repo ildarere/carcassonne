@@ -15,6 +15,7 @@ public interface UserService {
     List<User> getList();
     Optional<User> findByEmailAndEnabledTrue(String email);
     Optional<User> findByEmail(String email);
+    Optional<UserData> findDataByEmail(String email);
     List<UserData> findByNameContaining(String name);
     UserData findDataById(Long id);
     List<Friends> findFriendsById(int id);

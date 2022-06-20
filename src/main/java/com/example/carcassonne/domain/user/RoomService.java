@@ -20,4 +20,6 @@ public  interface RoomService {
     boolean isRoomReady(int id);
     List<UserData> getUsersFromRoom(int id);
     void addUserInRoom(int userId, int roomId);
+
+    void deleteUserFromRoom(int userId, int roomId);
 }
