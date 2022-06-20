@@ -42,7 +42,7 @@ function FriendsCallback() {
                     let img = document.createElement('img')
                     img.classList.add("imgPlus")
                     let pict ="img/gameLogo.png"
-                    img.scr = pict;
+                    img.src = pict;
                     let a = document.createElement('a');
                     a.classList.add("playerName");
                     a.innerHTML=p.name;
