@@ -20,10 +20,10 @@
 </head>
 <body th:id="${id}" class="inGameBody">
 <div id="inGameMenu" class="inGameMenu">
-<!--    <div class="field1">-->
-<!--        <img class="imgGame" th:src="@{/img/avatar.jpg}">-->
-<!--        <div id="redPlayer">игрок 11232155152</div>-->
-<!--    </div>-->
+    <div class="field1" th:each="user: ${users}">
+        <img class="imgGame" th:src="@{/img/avatar.jpg}">
+        <div id="redPlayer" th:text="${user.getName}" >игрок 11232155152</div>
+    </div>
 <!--    <div class="field1">-->
 <!--        <img class="imgGame" th:src="@{/img/avatar.jpg}">-->
 <!--        <div id="bluePlayer">игрок 11232155152</div>-->
