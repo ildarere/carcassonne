@@ -245,17 +245,17 @@ a:hover{
     color:#71af4e }
 
 .footer {
-    background-color: aliceblue;
-        position:  absolute;
-        top: 110vh;
-        display: flex;
-        justify-content:center;
-        height: 15%;
-        max-height: 15%;
-        min-height: 15%;
-        width: 103.9%;
-        align-items: center;
-        align-content: center;
+     background-color: aliceblue;
+       position:  absolute;
+       top: 110vh;
+       display: flex;
+       justify-content:center;
+       height: 15%;
+       max-height: 15%;
+       min-height: 15%;
+       width: 103.9%;
+       align-items: center;
+       align-content: center;
 }
 
 .subFooter{

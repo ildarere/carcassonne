@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
     <title>Поиск игр</title>
@@ -15,25 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body class="gameBody">
-    <div class="gameMenu">
-        <div class="submenu">
-            <a th:href="@{/}" class="gameName"><img class = logo th:src="@{/img/gameLogo.png}">Carcassonne Online</a>
-            <a th:href="@{/gameLobby}" class="gameAccent">ПОИСК ИГР</a>
-            <a th:href="@{/friends}" class="gameBlock" >Друзья</a>
-            <div class="gameDropdownMenu">
-                <button class="gameMenubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
-                <div class="gameDropdownMenu-content">
-                    <a th:href="@{/profile}" th:text="${currentName}">Иванов Иван</a>
-                    <a href="#" th:text="${currentRating}">Рейтинг - 0</a>
-                    <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
-                </div>
-                <div class="dropdownMenu-content" sec:authorize="isAnonymous()">
-                    <a class="logout" href="#" th:href="@{/user/registration}">Registration</a>
-                    <a class="logout" href="#" th:href="@{/login}">Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<th:block layout:fragment="content">
     <div class="gameMain">
         <div class="gameSubMain1">
             <div class="default">Ожидают игры</div>
@@ -46,12 +31,6 @@
 
         </div>
     </div>
-    <div id="cont" class="footer">
-        <div class="subFooter">
-            <div class="info">Сайт разработан в учебных целях в рамках РГР по дисциплине "Технологии и методы программирования"</div>
-            <div class="info1">Разработчики Максутов Ильдар Бахмацкий Юрий Иванов Максим</div>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" th:src="@{/img/vk.png}"> </a>
-        </div>
-    </div>
+</th:block>
 </body>
 </html>
