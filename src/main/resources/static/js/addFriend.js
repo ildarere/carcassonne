@@ -3,17 +3,21 @@
 document.addEventListener("DOMContentLoaded", ()=>ready());
 
 function ready() {
-	addFriendBtn.addEventListener('click', ()=>{
-		let val =document.getElementsByTagName('body')[0].id ;
-		console.log(val);
+	document.querySelector('#addFriendBtn').addEventListener('click', ()=>{
+
+
+		let url  = window.location.href;
+        let strs =  url.split('/');
+        let id = strs.at(-1);
+        let sendURL = '/'+ id + '/addFriend';
 		let xhr = new XMLHttpRequest();
-		let url = '/id'+val+'/addFriend'
-		xhr.open('POST', url, true);
+
+		xhr.open('POST', sendURL, true);
 
 		xhr.addEventListener('readystatechange', ajaxFilterCallback.bind(xhr) );
 
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-		xhr.send('q=' + val);
+		xhr.send('q=' + id.slice(2));
 
 	});
 }
