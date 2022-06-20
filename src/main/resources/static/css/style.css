@@ -660,6 +660,7 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     border: #344f21;
     display: inline-block;
     width: 98%;
+    margin-bottom:5%;
 }
 
 .form-control {
@@ -705,7 +706,7 @@ a:hover{background-color: #bbbec4; border:#bbbec4; border-radius: 5px }
     background-color: #639643;
     border: #e4e7ea;
     border-radius: 1vh;
-    padding 1%;
+    padding: 5px;
     margin-top: 10px;
 
 }
@@ -888,3 +889,14 @@ background-color: #71af4e;
     height: 40%;
     text-align: center;
 }
+
+.defaultVer{
+font-family: 'Ubuntu', sans-serif;
+    flex-direction: row;
+    color: #344f21;
+    font-size: 1.6vw;
+    width: 50%;
+    height: 40%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;}

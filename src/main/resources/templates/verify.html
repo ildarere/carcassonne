@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Идет игра!</title>
+    <title>Проверка почты</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
@@ -16,12 +16,17 @@
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
     <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 </head>
-<body >
-<input type="numder"
-       id="code" name="username" class="form-control"
-       autofocus="autofocus" >
-<div id="check">
-    <a   class="">отправить</a>
+<body class="authBody">
+<div class="auth">
+    <div class="defaultVer">
+        На вашу почту было отправлено письмо с кодом. Проверьте!
+    </div>
+    <input type="numder"
+           id="code" name="username" class="form-group"
+           autofocus="autofocus" >
+    <div id="check">
+        <a   class="stdBtn">Подтвердить</a>
+    </div>
 </div>
 <script th:src="@{/js/codeCheck.js}"></script>
 </body>
