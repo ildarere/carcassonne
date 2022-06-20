@@ -28,13 +28,13 @@ function FriendsCallback() {
 	if (xhr.status === 200) {
 		let data = xhr.responseText;
 		let dataJson = JSON.parse(data);
-		    let blocks = document.querySelectorAll('gameSubMain2');
+		    let blocks = document.getElementsByClassName('gameSubMain2');
 		for(let b of blocks){
 		    b.remove();
 		}
         if (data.length > 0) {
                 try {
-                    let dataJson = JSON.parse(data);
+                    let gameMain = document.querySelector('#gameMain');
                     console.log(dataJson)
                     dataJson.forEach(p=>{
                     let div = document.createElement('div')
@@ -52,11 +52,11 @@ function FriendsCallback() {
                     let div3 = document.createElement('div');
                     div3.class.add("hiddenDelete");
                     div3.innerHTML="Удалить"
-                    gameMain.appendChild(div);
-                    div.appendChild(img);
-                    div.appendChild(a);
-                    div.appendChild(div2);
                     div.appendChild(div3);
+                    div.appendChild(div2);
+                    div.appendChild(a);
+                    div.appendChild(img);
+                    gameMain.appendChild(div);
                     })
                 } catch(e) {
 
