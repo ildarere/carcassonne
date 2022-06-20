@@ -20,24 +20,24 @@
 </head>
 
 <body class="authBody">
-<div class="auth1">
+<div class="auth">
 	<h1 class="defaultReg">Регистрация</h1>
 
 	<form th:action="@{/user/registration}" th:method="post" th:object="${userForm}" autocomplete="off">
 		<div class="form-group">
-			<label>Логин: </label>
+			<label>Эл. почта</label>:
 			<input class="form-group" placeholder="например, 1@carc.me" checked="text" th:field="*{email}" autocomplete="off">
 			<span th:errors="*{email}"></span>
 		</div>
 
 		<div class="form-group">
-			<label>Никнейм: </label>
+			<label>Никнейм</label>:
 			<input class="form-group"  placeholder="например, суперИгрок500"type="text" th:field="*{name}" autocomplete="off">
 			<span th:errors="*{name}"></span>
 		</div>
 
 		<div class="form-group">
-			<label>Пароль: </label>
+			<label>Пароль</label>:
 			<input type="password" class="form-group"  placeholder="например, 12345" th:field="*{password}" autocomplete="false">
 			<span th:errors="*{password}"></span>
 		</div>

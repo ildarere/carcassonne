@@ -20,7 +20,6 @@
         <a th:href="@{/}" class="gameName"><img class = logo th:src="@{/img/gameLogo.png}">Carcassonne Online</a>
         <a th:href="@{/gameLobby}" class="gameAccent">ПОИСК ИГР</a>
         <a th:href="@{/friends}"class="gameBlock" >Друзья</a>
-        <a href="#cont" class="gameBlock">Контакты</a>
         <div class="gameDropdownMenu">
             <button class="gameMenubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
             <div class="gameDropdownMenu-content">
@@ -41,7 +40,7 @@
         </div>
     </div>
     <div sec:authorize="hasAuthority('ADMIN')">
-        <a  id="BanUser" class="">Заблокировать пользователя</a>
+        <a  id="BanUser" class="Delete">Заблокировать пользователя</a>
     </div>
     <div class="profileMain2">
         <div class="defaultFixed" th:utext="${gamesCount}">Игр сыграно: 0</div>
