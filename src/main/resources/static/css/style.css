@@ -900,3 +900,20 @@ font-family: 'Ubuntu', sans-serif;
     text-align: center;
     justify-content: center;
     align-items: center;}
+
+#disconnectBtn{
+font-family: 'Ubuntu', sans-serif;
+font-size: 1.6vw;
+color: #344f21;
+background-color: #d2d7de;
+border: #d2d7de;
+padding: 5px;
+border-radius: 2%
+
+}
+
+#disconnectBtn:hover{
+color: aliceblue;
+background-color: crimson;
+border: crimson;
+}
