@@ -28,7 +28,7 @@ function FriendsCallback() {
 	if (xhr.status === 200) {
 		let data = xhr.responseText;
 		let dataJson = JSON.parse(data);
-		    let blocks = document.getElementsByClassName('gameSubMain2');
+		    let blocks = document.querySelectorAll('.gameSubMain2');
 		for(let b of blocks){
 		    b.remove();
 		}
@@ -38,24 +38,27 @@ function FriendsCallback() {
                     console.log(dataJson)
                     dataJson.forEach(p=>{
                     let div = document.createElement('div')
-                    div.class.add("gameSubMain2")
+                    div.classList.add("gameSubMain2")
                     let img = document.createElement('img')
-                    img.class.add("imgPlus")
+                    img.classList.add("imgPlus")
                     let pict ="img/gameLogo.png"
                     img.scr = pict;
                     let a = document.createElement('a');
-                    a.class.add("playerName");
+                    a.classList.add("playerName");
                     a.innerHTML=p.name;
+                    let link = "/id"+p.id;
+                    a.href = link;
                     let div2 = document.createElement('div');
-                    div2.class.add("default");
-                    div2.innerHTML=p.raiting;
-                    let div3 = document.createElement('div');
-                    div3.class.add("hiddenDelete");
-                    div3.innerHTML="Удалить"
-                    div.appendChild(div3);
-                    div.appendChild(div2);
-                    div.appendChild(a);
+                    div2.classList.add("default");
+                    div2.innerHTML="Рейтинг:"+p.rating;
+
                     div.appendChild(img);
+                    div.appendChild(a);
+                    div.appendChild(div2);
+
+
+
+
                     gameMain.appendChild(div);
                     })
                 } catch(e) {

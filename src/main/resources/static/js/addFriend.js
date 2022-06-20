@@ -7,7 +7,8 @@ function ready() {
 		let val =document.getElementsByTagName('body')[0].id ;
 		console.log(val);
 		let xhr = new XMLHttpRequest();
-		xhr.open('POST', '/id/addFriend', true);
+		let url = '/id'+val+'/addFriend'
+		xhr.open('POST', url, true);
 
 		xhr.addEventListener('readystatechange', ajaxFilterCallback.bind(xhr) );
 
@@ -21,6 +22,7 @@ function ready() {
 function ajaxFilterCallback() {
     let xhr=this;
 	if (xhr.readyState !== 4) {
+	console.log(2222222222222222222222)
 		return;
 	}
 

@@ -24,7 +24,6 @@
       <img class="imgPlus" th:src="@{/img/gameLogo.png}">
       <a class="playerName" th:id="${friend.getId}" th:href="@{/id{id}(id=${friend.getId})}" th:text="${friend.getName}" > Имя</a>
       <div class="default" th:utext="'Рейтинг: ' +${friend.getRating}">Рейтинг:100</div>
-      <div class="hiddenDelete">Удалить</div>
     </div>
 
 </div>

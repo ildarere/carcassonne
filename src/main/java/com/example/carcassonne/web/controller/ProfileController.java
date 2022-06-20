@@ -60,7 +60,8 @@ public class ProfileController {
                 }
             }
             if(!isFriend){
-                model.addAttribute("isFriend", "false");
+                model.addAttribute("isFriend", "Добавить в друзья");
+                model.addAttribute("disable", "false");
             }
             model.addAttribute("name", userData.getName());
             model.addAttribute("rating","Рейтинг - " + userData.getRating());
@@ -78,7 +79,7 @@ public class ProfileController {
 
         return "/profile";
     }
-    @PostMapping(path = "/id/addFriend", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/id{id}/addFriend", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public void addFriend(@RequestParam(name = "q", required = false)int id) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

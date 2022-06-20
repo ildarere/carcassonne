@@ -5,6 +5,8 @@
       layout:decorate="~{layout}">
 <head>
     <title>Профиль</title>
+    <script th:src="@{/js/addFriend.js}"></script>
+    <script sec:authorize="hasAuthority('ADMIN')" th:src="@{/js/ban.js}"></script>
 </head>
 <body th:id="${id}"  class="gameBody">
 <th:block layout:fragment="content">
@@ -29,7 +31,6 @@
 </th:block>
 
 
-<script th:src="@{/js/addFriend.js}"></script>
-<script sec:authorize="hasAuthority('ADMIN')" th:src="@{/js/ban.js}"></script>
+
 </body>
 </html>
