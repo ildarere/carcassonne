@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+</head>
+<body th:id="${id}"  class="gameBody">
+<div class="gameMenu">
+    <div class="submenu">
+        <a th:href="@{/}" class="gameName"><img class = logo th:src="@{/img/gameLogo.png}">Carcassonne Online</a>
+        <a th:href="@{/gameLobby}" class="gameAccent">ПОИСК ИГР</a>
+        <a th:href="@{/friends}"class="gameBlock" >Друзья</a>
+        <div class="gameDropdownMenu">
+            <button class="gameMenubtn"><img class="img" th:src="@{/img/avatar.jpg}"></button>
+            <div class="gameDropdownMenu-content">
+                <a th:href="@{/profile}" th:text="${currentName}">Иванов Иван</a>
+                <a href="#" th:text="${currentRating}">Рейтинг - 0</a>
+                <a class="logout" href="#" th:href="@{/logout}">Выйти</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <th:block layout:fragment="content" />
+</div>
+
+
+<div id="cont" class="footer">
+    <div class="subFooter">
+        <div class="info">Сайт разработан в учебных целях в рамках РГР по дисциплине "Технологии и методы программирования"</div>
+        <div class="info1">Разработчики Максутов Ильдар Бахмацкий Юрий Иванов Максим</div>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQinfo1" target="_blank" class="info1">Соцсети<img id="img1" th:src="@{/img/vk.png}"> </a>
+    </div>
+</div>
+<script th:src="@{/js/addFriend.js}"></script>
+<script sec:authorize="hasAuthority('ADMIN')" th:src="@{/js/ban.js}"></script>
+</body>
+</html>
