@@ -1,7 +1,7 @@
 package com.example.carcassonne.web.controller;
 
 import com.example.carcassonne.domain.model.UserData;
-import com.example.carcassonne.domain.user.UserService;
+import com.example.carcassonne.domain.service.UserService;
 import com.example.carcassonne.web.spring.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

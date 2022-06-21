@@ -2,13 +2,10 @@ package com.example.carcassonne.web.controller;
 
 import com.example.carcassonne.domain.model.Friends;
 import com.example.carcassonne.domain.model.UserData;
-import com.example.carcassonne.domain.user.UserService;
+import com.example.carcassonne.domain.service.UserService;
 import com.example.carcassonne.web.spring.UserDetailsImpl;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

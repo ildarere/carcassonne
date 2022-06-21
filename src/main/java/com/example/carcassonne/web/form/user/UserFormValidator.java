@@ -1,6 +1,6 @@
 package com.example.carcassonne.web.form.user;
 
-import com.example.carcassonne.domain.user.UserService;
+import com.example.carcassonne.domain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

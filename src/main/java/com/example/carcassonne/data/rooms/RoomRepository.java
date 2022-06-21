@@ -20,6 +20,8 @@ public interface RoomRepository extends CrudRepository<Room,Integer> {
     @Modifying
     void setRoomReady(int id);
 
+    @Query("select * from rooms")
+    List<Room> getAllRooms();
 
     List<Room> findAllRoomsByName(String name);
 
@@ -31,9 +33,10 @@ public interface RoomRepository extends CrudRepository<Room,Integer> {
     @Query("Select ready from rooms where id = :id")
     int isReady(int id);
 
-    @Query("Select roomId," +
-            " user_information.id, user_information.rating, user_information.games_count, user_information.wins, user_information.name " +
-            "From users_in_rooms left join user_information on user_information.id = users_in_rooms.userid " +
+    @Query("Select roomId, " +
+            "user_information.id, user_information.rating, user_information.games_count, user_information.wins, user_information.name " +
+            "From users_in_rooms " +
+            "left join user_information on user_information.id = users_in_rooms.userid " +
             "where roomId = :id")
     List<UserData> getUsersFromRoom(int id);
 
@@ -45,4 +48,9 @@ public interface RoomRepository extends CrudRepository<Room,Integer> {
     @Query("DELETE FROM  users_in_rooms " +
             "where userId = :userId ")
     void deleteUserFromRoom(int userId);
+
+
+    @Query("Select Count(*) from users_in_rooms where roomId = :roomId" )
+    int countUsersInRoom(int roomId);
+
 }

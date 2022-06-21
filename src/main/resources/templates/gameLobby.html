@@ -17,7 +17,7 @@
         </div>
         <div class="gameSubMain2" th:each="room: ${roomsList}">
             <label class="default" th:text="${room.getName}">  </label>
-            <div class="default">Игроков: </div>
+            <div class="default" th:text="'Игроков:'+${room.getUsersInRoom}+'/'+${room.getMaxSize}"> </div>
             <div ><a th:href="@{/room{id}(id=${room.getId})}"><img class="imgPlus" th:src="@{/img/plus.png}" ></a>
             </div>
 

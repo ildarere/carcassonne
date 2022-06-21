@@ -1,4 +1,4 @@
-package com.example.carcassonne.domain.user;
+package com.example.carcassonne.domain.service;
 
 import com.example.carcassonne.domain.model.Friends;
 import com.example.carcassonne.domain.model.User;

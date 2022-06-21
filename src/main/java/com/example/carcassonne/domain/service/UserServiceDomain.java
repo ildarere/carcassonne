@@ -1,4 +1,4 @@
-package com.example.carcassonne.domain.user;
+package com.example.carcassonne.domain.service;
 
 import com.example.carcassonne.data.user.FriendsRepository;
 import com.example.carcassonne.data.user.UserDataRepository;

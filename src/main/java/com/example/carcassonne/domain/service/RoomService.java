@@ -1,8 +1,7 @@
-package com.example.carcassonne.domain.user;
+package com.example.carcassonne.domain.service;
 
 import com.example.carcassonne.domain.model.Room;
 import com.example.carcassonne.domain.model.UserData;
-import com.example.carcassonne.web.form.room.RoomForm;
 
 import java.util.List;
 import java.util.Optional;

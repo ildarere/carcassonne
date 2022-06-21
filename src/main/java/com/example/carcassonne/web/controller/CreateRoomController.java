@@ -1,14 +1,12 @@
 package com.example.carcassonne.web.controller;
 
 import com.example.carcassonne.domain.model.Room;
-import com.example.carcassonne.domain.model.UserData;
-import com.example.carcassonne.domain.user.RoomService;
+import com.example.carcassonne.domain.service.RoomService;
 import com.example.carcassonne.web.form.room.RoomForm;
 import com.example.carcassonne.web.form.room.RoomFormValidator;
 import com.example.carcassonne.web.spring.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

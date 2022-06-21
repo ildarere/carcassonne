@@ -1,9 +1,8 @@
-package com.example.carcassonne.domain.user;
+package com.example.carcassonne.domain.service;
 
 import com.example.carcassonne.data.rooms.RoomRepository;
 import com.example.carcassonne.domain.model.Room;
 import com.example.carcassonne.domain.model.UserData;
-import com.example.carcassonne.web.form.room.RoomForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +34,11 @@ public class RoomServiceDomain implements RoomService{
 
     @Override
     public List<Room> getAllRooms() {
-        List<Room> rooms = new ArrayList<>();
-        roomsRepository.findAll().forEach(rooms::add);
+        List<Room> rooms = roomsRepository.getAllRooms();
+        for (Room r:rooms) {
+            r.setUsersInRoom(roomsRepository.countUsersInRoom(r.getId()));
+        }
+
         return rooms;
     }
 

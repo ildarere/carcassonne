@@ -1,20 +1,19 @@
 package com.example.carcassonne.web.controller;
 
 import com.example.carcassonne.domain.model.UserData;
-import com.example.carcassonne.domain.user.RoomService;
-import com.example.carcassonne.domain.user.UserService;
-import com.example.carcassonne.web.spring.UserDetailsImpl;
+import com.example.carcassonne.domain.model.СhatMessage;
+import com.example.carcassonne.domain.service.ChatService;
+import com.example.carcassonne.domain.service.RoomService;
+import com.example.carcassonne.domain.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.security.Principal;
@@ -27,7 +26,8 @@ public class RoomController {
     RoomService roomService;
     @Autowired
     UserService userService;
-
+    @Autowired
+    ChatService chatService;
 
 
     @GetMapping("/room{id}")
@@ -60,6 +60,8 @@ public class RoomController {
         roomService.addUserInRoom(Math.toIntExact(userData.getId()), id);
         System.out.println(principal.getName());
         System.out.println(userData.toString());
+
+
         return userData;
     }
     @MessageMapping("/room{id}/userDisconnected")
@@ -70,6 +72,14 @@ public class RoomController {
         UserData userData= userService.findDataById((long) userId);
         System.out.println(userData.toString());
         return userId;
+    }
+
+    @MessageMapping("/room{id}/chatSendMsg")
+    @SendTo("/topic/room{id}/chatGetMsg")
+    public СhatMessage chatMsg(@Payload СhatMessage chatMessage, @DestinationVariable("id") int id) throws Exception {
+
+        System.out.println(chatMessage.toString());
+        return chatMessage;
     }
 
 }

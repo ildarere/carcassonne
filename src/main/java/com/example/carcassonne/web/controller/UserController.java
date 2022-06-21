@@ -1,6 +1,6 @@
 package com.example.carcassonne.web.controller;
 
-import com.example.carcassonne.domain.user.UserService;
+import com.example.carcassonne.domain.service.UserService;
 import com.example.carcassonne.web.form.user.UserForm;
 //import com.example.carcassonne.web.form.user.UserFormValidator;
 import com.example.carcassonne.web.form.user.UserFormValidator;

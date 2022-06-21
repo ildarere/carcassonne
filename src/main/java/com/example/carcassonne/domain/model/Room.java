@@ -25,6 +25,8 @@ public class Room  implements Serializable {
     @Column("name")
     private String name;
 
+    private int usersInRoom;
+
     public Room() {
         super();
     }
@@ -36,7 +38,13 @@ public class Room  implements Serializable {
         this.name = name;
     }
 
+    public int getUsersInRoom() {
+        return usersInRoom;
+    }
 
+    public void setUsersInRoom(int usersInRoom) {
+        this.usersInRoom = usersInRoom;
+    }
 
     public int getId() {
         return id;
