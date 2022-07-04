@@ -804,6 +804,7 @@ background-color: #71af4e;
     width: 100px;
     height: 100px;
     margin: 1px;
+    border: solid;
 }
 
 .field{
@@ -916,4 +917,20 @@ border-radius: 2%
 color: aliceblue;
 background-color: crimson;
 border: crimson;
+}
+
+.Tile {
+    width: 100px;
+    height: 100px;
+    background-color:black;
+    position: absolute;
+
+}
+.DeckHolder{
+    background-color: aliceblue;
+    position: fixed;
+    width: 220px;
+    height: 120px;
+    bottom: 100px;
+    left: 100px;
 }
