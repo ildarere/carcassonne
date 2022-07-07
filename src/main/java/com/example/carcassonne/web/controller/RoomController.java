@@ -3,6 +3,7 @@ package com.example.carcassonne.web.controller;
 import com.example.carcassonne.domain.model.UserData;
 import com.example.carcassonne.domain.model.СhatMessage;
 import com.example.carcassonne.domain.service.ChatService;
+import com.example.carcassonne.domain.service.GameService;
 import com.example.carcassonne.domain.service.RoomService;
 import com.example.carcassonne.domain.service.UserService;
 
@@ -28,6 +29,8 @@ public class RoomController {
     UserService userService;
     @Autowired
     ChatService chatService;
+    @Autowired
+    GameService gameService;
 
 
     @GetMapping("/room{id}")
@@ -60,7 +63,9 @@ public class RoomController {
         roomService.addUserInRoom(Math.toIntExact(userData.getId()), id);
         System.out.println(principal.getName());
         System.out.println(userData.toString());
-
+        if(!roomService.isRoomReady(id)){
+            gameService.startGame(id);
+        }
 
         return userData;
     }
