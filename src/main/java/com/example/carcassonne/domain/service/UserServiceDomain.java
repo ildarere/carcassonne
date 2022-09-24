@@ -139,4 +139,9 @@ public class UserServiceDomain implements UserService {
     public void setEnabledFalse(int id) {
         userRepository.EnabledFalse(id);
     }
+
+    @Override
+    public List<UserData> findUsersByRoom(int id) {
+        return userRepository.findByRoomId(id);
+    }
 }

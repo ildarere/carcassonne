@@ -70,12 +70,20 @@ public class RoomServiceDomain implements RoomService{
 
     @Override
     public void addUserInRoom(int userId, int roomId) {
-        roomsRepository.addUserInRoom(userId, roomId);
+        if(!isUserWithIdExistInRoom(userId, roomId)){
+            roomsRepository.addUserInRoom(userId, roomId);
+        }
+
     }
 
     @Override
     public boolean isRoomWithNameExist(String name) {
         return roomsRepository.countByName(name) != 0 ? true : false;
+    }
+
+    @Override
+    public boolean isUserWithIdExistInRoom(int userId, int roomId) {
+        return roomsRepository.countByUserId(userId, roomId) != 0 ? true : false;
     }
 
     @Override

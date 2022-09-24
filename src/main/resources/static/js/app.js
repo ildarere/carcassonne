@@ -1,11 +1,31 @@
 document.addEventListener("DOMContentLoaded", ()=>ready());
 
-
+var gameStart = false;
 var stompClient = null;
 let roomId =null;
+const roomSize = 2;
 let currentUserId = null;
 let currentUserName = null;
+const userList = [];
 function ready() {
+    for(let x=1; x<40; x++) {
+    let div = document.createElement("div");
+    div.className = "field";
+    div.id = "field_" + x;
+    document.querySelector('.allField').appendChild(div);
+    for(let y=1; y<40; y++) {
+        let parent = document.querySelector('#field_' + x)
+        let div = document.createElement("div");
+        div.id = y+"%"+x ;
+        div.classList.add("tile");
+
+        parent.appendChild(div);
+
+
+    }
+    }
+    rotateLeft.addEventListener('click', rotateTileLeft);
+  //  rotateRight.addEventListener('click', rotateTileRight);
     roomId=document.getElementsByTagName('body')[0].id ;
     connect();
     setTimeout(function(){sendName(); }, 2000);
@@ -20,24 +40,40 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         //setConnected(true);
-        console.log('Connected: ' + frame);
+
         stompClient.subscribe(('/topic/room'+roomId+'/connected'), function (greeting) {
-        console.log(greeting)
             addInPlayerList(JSON.parse(greeting.body));
         });
         stompClient.subscribe(('/topic/room'+roomId+'/userDisconnected'), function (greeting) {
-                console.log(greeting)
-                disconnectPlayer(JSON.parse(greeting.body));
-                });
+            disconnectPlayer(JSON.parse(greeting.body));
+        });
         stompClient.subscribe(('/topic/room'+roomId+'/chatGetMsg'), function (greeting) {
-                console.log(greeting)
-                addMsg(JSON.parse(greeting.body));
-            });
+            addMsg(JSON.parse(greeting.body));
+        });
+        stompClient.subscribe(('/topic/room'+roomId+'/getTile'), function (greeting) {
+            createTile(JSON.parse(greeting.body));
+        });
+        stompClient.subscribe(('/topic/room'+roomId+'/placeTile'), function (greeting) {
+            placeTileBySpot(greeting.body);
+        });
     });
 }
 
 function disconnectPlayer(id){
  document.getElementById('User' + id).remove();
+ let index = userList.indexOf(id);
+  if (index !== -1) {
+    userList.splice(index, 1);
+  }
+  if(userList.length<roomSize && gameStart){
+    gameEnd();
+  }
+
+}
+
+function gameEnd(){
+gameStart= false;
+console.log("game END")
 }
 function disconnect() {
     let socketName = "/app/room"+roomId+"/userDisconnected";
@@ -46,7 +82,6 @@ function disconnect() {
         stompClient.disconnect();
     }
 
-    console.log("Disconnected");
     window.location.replace("/");
 }
 
@@ -55,26 +90,36 @@ function sendName() {
     stompClient.send((socketName),{}, "hi");
 }
 
-function  addInPlayerList(message) {
-    if(currentUserId==null){
-    currentUserId =message.id;
-    currentUserName = message.name;
-    }
-    let div = document.createElement("div");
-    div.className = "field1";
-    div.id ="User" + message.id;
-    let innerDiv = document.createElement("div");
-    innerDiv.id = "redPlayer";
-    innerDiv.innerHTML = message.name;
-    div.innerHTML='<img class="imgGame" src="/img/avatar.jpg">';
-    div.appendChild(innerDiv);
-    inGameMenu.appendChild(div);
+function  addInPlayerList(users) {
+    console.log(users);
+    for (const user of users){
+        if(currentUserId==null){
+            currentUserId =user.id;
+            currentUserName = user.name;
+        }
 
+        if(document.getElementById("User" + user.id)==null){
+            userList.push(user.id);
+            let div = document.createElement("div");
+            div.className = "field1";
+            div.id ="User" + user.id;
+            let innerDiv = document.createElement("div");
+            innerDiv.id = "redPlayer";
+            innerDiv.innerHTML = user.name;
+            div.innerHTML='<img class="imgGame" src="/img/avatar.jpg">';
+            div.appendChild(innerDiv);
+            inGameMenu.appendChild(div);
+        }
+    }
+    userList.sort((a, b) => a - b);
+
+    if(userList.length == roomSize){
+        gameStart = true;
+        startGame();
+    }
 }
 function addMsg(message) {
     if(message.authorId == currentUserId){
-        console.log(message)
-        console.log("same ID")
         return;
     }else{
         let messageText = message.authorName + ": "+ message.message;

@@ -52,5 +52,7 @@ public interface RoomRepository extends CrudRepository<Room,Integer> {
 
     @Query("Select Count(*) from users_in_rooms where roomId = :roomId" )
     int countUsersInRoom(int roomId);
-
+    @Query("select count(*) from users_in_rooms " +
+            "where roomId = :roomId and userId= :userId ")
+    int countByUserId(int userId, int roomId);
 }

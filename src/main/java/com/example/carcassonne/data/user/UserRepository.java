@@ -14,10 +14,14 @@ import java.util.Optional;
 public interface UserRepository extends CrudRepository<User, Long> {
 
     long countByEmail(String email);
+
     @Query("select id from user where email like :email")
     long getIdByEmail(String email);
+
     Optional<User> findByEmail(String email);
+
     Optional<User> findByEmailAndEnabledTrue(String email);
+
     @Query("update user " +
             " set enabled = 1" +
             " where id = :id ")
@@ -31,4 +35,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
             " where id = :id ")
     @Modifying
     void EnabledFalse(int id);
+
+    @Query("select * from users_in_rooms " +
+            "left join user_information on users_in_rooms.userId = user_information.id")
+    List<UserData> findByRoomId(int id);
 }

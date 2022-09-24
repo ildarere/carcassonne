@@ -7,6 +7,7 @@ import com.example.carcassonne.web.form.user.UserForm;
 
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,4 +30,6 @@ public interface UserService {
     void setEnabledTrue(long id);
 
     void setEnabledFalse(int id);
+
+    List<UserData> findUsersByRoom(int id);
 }

@@ -2,8 +2,9 @@ package com.example.carcassonne.domain.game.settings;
 
 
 
-import com.example.carcassonne.domain.game.model.terrain.TerrainType;
-import com.example.carcassonne.domain.game.model.tile.TileDistribution;
+import com.example.carcassonne.domain.model.terrain.TerrainType;
+import com.example.carcassonne.domain.model.tile.TileDistribution;
+import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.*;
  * Class for the management of the Carcassonne game settings.
  * @author Timur Saglam
  */
+@Component
 public class GameSettings {
     // THRESHOLD CONSTANTS:
     public static final int MAXIMAL_PLAYERS = 5;
@@ -23,17 +25,17 @@ public class GameSettings {
 
     // STRING CONSTANTS
     public static final String TILE_FILE_TYPE = ".png";
-    public static final String TILE_FOLDER_PATH = "tiles/";
+    public static final String TILE_FOLDER_PATH = "static/img/tiles/";
     private static final String EMPTY = "";
     private static final String MEEPLE_PATH = "meeple/meeple_";
     private static final String PNG = ".png";
     private static final String TEMPLATE = "_template";
     private static final String[] DEFAULT_NAMES = { "ONE", "TWO", "THREE", "FOUR", "FIVE" };
 
-    // COLOR CONSTANTS:
-    public static final Color UI_COLOR = new Color(190, 190, 190);
-    private static final PlayerColor[] DEFAULT_COLORS = { new PlayerColor(30, 26, 197), new PlayerColor(151, 4, 12), new PlayerColor(14, 119, 25),
-            new PlayerColor(216, 124, 0), new PlayerColor(96, 0, 147) };
+//    // COLOR CONSTANTS:
+//    public static final Color UI_COLOR = new Color(190, 190, 190);
+//    private static final PlayerColor[] DEFAULT_COLORS = { new PlayerColor(30, 26, 197), new PlayerColor(151, 4, 12), new PlayerColor(14, 119, 25),
+//            new PlayerColor(216, 124, 0), new PlayerColor(96, 0, 147) };
 
     // COSMETIC:
     private final List<PlayerColor> colors;
@@ -62,7 +64,7 @@ public class GameSettings {
      * Creates a settings instance. Instances hold different setting values when one is changed.
      */
     public GameSettings() {
-        colors = new ArrayList<>(Arrays.asList(DEFAULT_COLORS));
+        colors = new ArrayList<>(PlayerColor.DefaultColors());
         names = new ArrayList<>(Arrays.asList(DEFAULT_NAMES));
         playerTypes = new ArrayList<>(Arrays.asList(false, false, true, true, true));
         meepleRules = new HashMap<>();
@@ -71,12 +73,26 @@ public class GameSettings {
         numberOfPlayers = 2;
         tilesPerPlayer = 1;
         stackSizeMultiplier = 1;
-        gridWidth = 64;
-        gridHeight = 64;
+        gridWidth = 39;
+        gridHeight = 39;
         allowEnclaves = true;
 
     }
 
+    public GameSettings(int numberOfPlayers, List<Boolean> playerTypes) {
+        colors = new ArrayList<>(PlayerColor.DefaultColors());
+        names = new ArrayList<>(Arrays.asList(DEFAULT_NAMES));
+        meepleRules = new HashMap<>();
+        TerrainType.basicTerrain().forEach(it -> meepleRules.put(it, true));
+        tileDistribution = new TileDistribution();
+        tilesPerPlayer = 1;
+        stackSizeMultiplier = 1;
+        gridWidth = 39;
+        gridHeight = 39;
+        allowEnclaves = true;
+        this.numberOfPlayers = numberOfPlayers;
+        this.playerTypes = playerTypes;
+    }
     /**
      * Returns the distance measure used for AI players.
      * @return the specific Minkowski distance.
@@ -264,8 +280,8 @@ public class GameSettings {
      * @param color is the new base {@link Color}.
      * @param playerNumber is the number of the {@link Player}.
      */
-    public void setPlayerColor(Color color, int playerNumber) {
-        colors.set(playerNumber, new PlayerColor(color));
+    public void setPlayerColor(PlayerColor color, int playerNumber) {
+        colors.set(playerNumber, color);
 
     }
 
