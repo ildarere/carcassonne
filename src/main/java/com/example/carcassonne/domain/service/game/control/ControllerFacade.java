@@ -22,7 +22,7 @@ public interface ControllerFacade {
 
     String requestManningState();
 
-    void requestGameOverState();
+    String requestGameOverState();
 
     List<String> setMeeplePreview();
 

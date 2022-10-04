@@ -93,8 +93,8 @@ public class MainController implements ControllerFacade {
     }
 
     @Override
-    public void requestGameOverState() {
-
+    public String requestGameOverState() {
+        return gameState.getRound().winningPlayers();
     }
 
     @Override

@@ -65,6 +65,9 @@ function connect() {
         stompClient.subscribe(('/topic/room'+roomId+'/updateScores'), function (greeting) {
             updateScore(greeting.body);
         });
+        stompClient.subscribe(('/topic/room'+roomId+'/gameOver'), function (greeting) {
+                    gameOver(greeting.body);
+                });
     });
 }
 function updateScore(data){
@@ -82,17 +85,21 @@ function disconnectPlayer(id){
  document.getElementById('User' + id).remove();
  let index = userList.indexOf(id);
   if (index !== -1) {
-    userList.splice(index, 1);
+    userList.slice(index, 1);
   }
-  if(userList.length<roomSize && gameStart){
+
     gameEnd();
-  }
+
 
 }
 
+function gameOver(wins){
+alert("The game is over. Winning player(s): "  wins);
+}
 function gameEnd(){
 gameStart= false;
-
+let socketName = "/app/room"+roomId+"/gameOver";
+stompClient.send((socketName),{});
 console.log("game END")
 }
 function disconnect() {

@@ -169,6 +169,12 @@ public class RoomController {
     public void nextTurn(@PathVariable int id ){
             controllerFacade.startNextTurn();
     }
+    @MessageMapping("/room{id}/gameOver")
+    @SendTo("/topic/room{id}/gameOver")
+    public String gameOver(@DestinationVariable("id") int id) throws Exception {
+
+        return controllerFacade.requestGameOverState();
+    }
 //    @PostMapping( value = "/room{id}/isPlaceTileOnSpot")
 //    @ResponseBody
 //    public String isPlace(@PathVariable int id , @RequestBody TIleInf tile){
