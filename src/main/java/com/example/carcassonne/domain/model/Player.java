@@ -67,7 +67,8 @@ public class Player {
      * @return true if it was dropped, false if it is not in the hand of the player.
      */
     public boolean dropTile(Tile tile) {
-        return handOfTiles.remove(tile);
+        handOfTiles.clear();
+        return true;
     }
 
     /**

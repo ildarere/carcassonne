@@ -28,6 +28,8 @@ public class GameState {
     protected Round round;
     protected TileStack tileStack;
     protected Grid grid;
+    private Tile currentTile;
+
 
     /**
      * Constructor of the   state, sets the controller from the parameter, registers the state at the controller and
@@ -155,4 +157,14 @@ public class GameState {
     public Grid getGrid() {
         return grid;
     }
+
+    public Tile getCurrentTile() {
+        return currentTile;
+    }
+
+    public void setCurrentTile(Tile currentTile) {
+        this.currentTile = currentTile;
+    }
+
+
 }

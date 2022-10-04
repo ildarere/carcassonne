@@ -920,20 +920,22 @@ background-color: crimson;
 border: crimson;
 }
 .deckOfCardInside{
-    display: inline;
+    display: inline-block;
+    width: 100px; height: 110px;
 }
-.MeepleTable{
-    border:1px;
-    width: 100%;
+ th, td {
+    border:1px solid black;
+    width: 25px;
+    height: 25px;
 }
 .MeepleSpot{
-    height: 33px;
+    width: 100px;
 
 }
 .Tile {
     width: 100px;
     height: 100px;
-    background-color:black;
+    background-color:rgb(255, 255, 255);
     position: absolute;
 
 }
@@ -943,13 +945,16 @@ border: crimson;
 
 
 }
+.buttons{
+    text-align: center;
+}
 .tilesOnMap{
 width: 98px;
     height: 98px;
-]}
+}
 
 .DeckHolder{
-    background-color: aliceblue;
+    background-color: rgb(16, 32, 46);
     position: fixed;
     width: 220px;
     height: 120px;
@@ -959,4 +964,50 @@ width: 98px;
 .allField{
 width: 100%;
     height:100% ;
+}
+.meeple{
+    width: 33px;
+    height:33px ;
+}
+ NORTH: 1, NORTH_EAST: 2, WEST: 3, CENTER: 4, EAST: 5, SOUTH_WEST: 6, SOUTH: 7, SOUTH_EAST: 8
+.meeple-pos-NORTH_WEST{
+    position: relative;
+    left: -33%;
+}
+
+.meeple-pos-NORTH{
+    position: relative;
+}
+.meeple-pos-NORTH_EAST{
+    position: relative;
+    left: 33%;
+}
+.meeple-pos-WEST{
+    position: relative;
+    top: 27%; /* Положение от нижнего края */
+    left: -33%;
+}
+.meeple-pos-CENTER{
+    position: relative;
+    top: 27%; /* Положение от нижнего края */
+
+}
+.meeple-pos-EAST{
+    position: relative;
+    top: 27%; /* Положение от нижнего края */
+    left: 33%;
+}
+.meeple-pos-SOUTH_WEST{
+    position: relative;
+    top: 60%; /* Положение от нижнего края */
+    left: -33%;
+}
+.meeple-pos-SOUTH{
+    position: relative;
+    top: 60%; /* Положение от нижнего края */
+}
+.meeple-pos-SOUTH_EAST{
+    position: relative;
+    top: 60%; /* Положение от нижнего края */
+    left: 33%;
 }

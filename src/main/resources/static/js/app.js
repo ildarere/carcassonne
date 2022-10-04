@@ -56,9 +56,28 @@ function connect() {
         stompClient.subscribe(('/topic/room'+roomId+'/placeTile'), function (greeting) {
             placeTileBySpot(greeting.body);
         });
+        stompClient.subscribe(('/topic/room'+roomId+'/placeMeeple'), function (greeting) {
+            placeMeeple(greeting.body);
+        });
+        stompClient.subscribe(('/topic/room'+roomId+'/removeMeeples'), function (greeting) {
+            removeMeeple(greeting.body);
+        });
+        stompClient.subscribe(('/topic/room'+roomId+'/updateScores'), function (greeting) {
+            updateScore(greeting.body);
+        });
     });
 }
+function updateScore(data){
+let a = 0;
+let scores = data.slice(1, data.length-1).replaceAll('"', '').toLocaleLowerCase().split(",");
+console.log(scores +"saasasasas");
+    for(let s of scores){
+        let score =  document.getElementById("Score"+userList[a])
+        score.innerHTML="Score: "+s;
+        a++;
+    }
 
+}
 function disconnectPlayer(id){
  document.getElementById('User' + id).remove();
  let index = userList.indexOf(id);
@@ -73,6 +92,7 @@ function disconnectPlayer(id){
 
 function gameEnd(){
 gameStart= false;
+
 console.log("game END")
 }
 function disconnect() {
@@ -106,7 +126,11 @@ function  addInPlayerList(users) {
             let innerDiv = document.createElement("div");
             innerDiv.id = "redPlayer";
             innerDiv.innerHTML = user.name;
+             let innerDiv2 = document.createElement("div");
+             innerDiv2.id = "Score"+ user.id;
+             innerDiv2.innerHTML = "Score: 0"
             div.innerHTML='<img class="imgGame" src="/img/avatar.jpg">';
+            innerDiv.appendChild(innerDiv2);
             div.appendChild(innerDiv);
             inGameMenu.appendChild(div);
         }

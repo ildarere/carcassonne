@@ -1,5 +1,6 @@
 package com.example.carcassonne.web.controller;
 
+import com.example.carcassonne.domain.model.grid.GridDirection;
 import com.example.carcassonne.domain.model.grid.GridSpot;
 import com.example.carcassonne.domain.model.tile.TIleInf;
 import com.example.carcassonne.domain.model.tile.Tile;
@@ -127,6 +128,46 @@ public class RoomController {
             sb.append(spot.getX()).append("%").append(spot.getY()).append("@");
         }
         return newTile.getInf()+"//"+sb.toString();
+    }
+    @PostMapping( value = "/room{id}/getMeeplesSpot")
+    @ResponseBody
+    public List<String> MeeplesSpot(@PathVariable int id){
+        return controllerFacade.setMeeplePreview();
+    }
+    @PostMapping( value = "/room{id}/requestManingState")
+    @ResponseBody
+    public String requestManingState(@PathVariable int id){
+        return controllerFacade.requestManningState();
+    }
+
+    @MessageMapping("/room{id}/isPlaceMeeple")
+    @SendTo("/topic/room{id}/placeMeeple")
+    public String placeMeeple(@DestinationVariable("id") int id, @Payload String position) throws Exception {
+        System.out.println(GridDirection.valueOf(position));
+
+        return controllerFacade.requestMeeplePlacement(GridDirection.valueOf(position)).toString();
+    }
+
+    @MessageMapping("/room{id}/processGridPatterns")
+    @SendTo("/topic/room{id}/removeMeeples")
+    public String processGridPatterns(@DestinationVariable("id") int id) throws Exception {
+        List<GridSpot> spots = controllerFacade.processGridPatterns();
+        StringBuilder sb= new StringBuilder();
+        for (GridSpot spot: spots) {
+            sb.append(spot.getX()).append("%").append(spot.getY()).append("@");
+        }
+        return sb.toString();
+    }
+    @MessageMapping("/room{id}/Score")
+    @SendTo("/topic/room{id}/updateScores")
+    public List<Integer> updateScores(@DestinationVariable("id") int id) throws Exception {
+
+        return controllerFacade.getScores();
+    }
+    @PostMapping("/room{id}/nextTurn")
+    @ResponseBody
+    public void nextTurn(@PathVariable int id ){
+            controllerFacade.startNextTurn();
     }
 //    @PostMapping( value = "/room{id}/isPlaceTileOnSpot")
 //    @ResponseBody

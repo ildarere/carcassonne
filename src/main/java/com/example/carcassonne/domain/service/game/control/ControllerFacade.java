@@ -20,12 +20,13 @@ public interface ControllerFacade {
 
     Tile requestPlacingState();
 
-    String requestManningState(Tile selectedTile);
+    String requestManningState();
 
     void requestGameOverState();
 
+    List<String> setMeeplePreview();
 
-    boolean requestMeeplePlacement(GridDirection position, Tile tile);
+    GridDirection requestMeeplePlacement(GridDirection position);
 
     void requestSkip();
 
@@ -33,9 +34,10 @@ public interface ControllerFacade {
 
     List<GridSpot> highlightSurroundings(GridSpot spot);
 
+    void startNextTurn();
 
-
-
+    List<GridSpot> processGridPatterns();
+    List<Integer> getScores();
 
 
 

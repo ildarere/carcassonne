@@ -9,11 +9,13 @@ import com.example.carcassonne.domain.model.grid.GridDirection;
 import com.example.carcassonne.domain.game.settings.GameSettings;
 import com.example.carcassonne.domain.model.grid.GridPattern;
 import com.example.carcassonne.domain.model.grid.GridSpot;
+import com.example.carcassonne.domain.model.terrain.TerrainType;
 import com.example.carcassonne.domain.model.tile.TIleInf;
 import com.example.carcassonne.domain.model.tile.Tile;
 import com.example.carcassonne.domain.model.tile.TileStack;
 import com.example.carcassonne.domain.service.game.control.state.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -37,7 +39,6 @@ public class MainController implements ControllerFacade {
     public GridSpot startGame() {
         noMeeplesNotification = new boolean[GameSettings.MAXIMAL_PLAYERS];
         return requestNewRound();
-
     }
 
     @Override
@@ -61,18 +62,20 @@ public class MainController implements ControllerFacade {
         if (!player.hasFullHand() && !gameState.getTileStack().isEmpty()) {
             Tile tile = gameState.getTileStack().drawTile();
             player.addTile(tile);
+
         }
         gameState.updateStackSize();
         if (gameState.getRound().isOver()) {
             requestGameOverState();
         } else  {
+            System.out.println(((List<Tile>) player.getHandOfTiles()).get(0).toString()+" -----------");
             return ((List<Tile>) player.getHandOfTiles()).get(0);
         }
         return null;
     }
 
     @Override
-    public String requestManningState(Tile selectedTile) {
+    public String requestManningState() {
         Player player = gameState.getRound().getActivePlayer();
         String msg = null;
         if (player.hasFreeMeeples()) {
@@ -95,14 +98,31 @@ public class MainController implements ControllerFacade {
     }
 
     @Override
-    public boolean requestMeeplePlacement(GridDirection position, Tile tile) {
+    public List<String> setMeeplePreview() {
+        Tile tile = gameState.getCurrentTile();
         Player player = gameState.getRound().getActivePlayer();
-        if (player.hasFreeMeeples() && tile.allowsPlacingMeeple(position, player, settings)) {
-            tile.placeMeeple(player, position, settings);
+        List<String> meeples = new ArrayList<>();
+        for (GridDirection direction : GridDirection.byRow()) {
+            TerrainType terrain = tile.getTerrain(direction);
+            if (tile.hasMeepleSpot(direction) && tile.allowsPlacingMeeple(direction, player, settings) && settings.getMeepleRule(terrain)) {
+                    meeples.add("meeple_"+ terrain.toReadableString());
+//                labels.get(direction).setPreview(tile.getTerrain(direction), currentPlayer);
+            }else {
+                meeples.add("Empty");
+            }
+        }
+        return meeples;
+    }
+
+    @Override
+    public GridDirection requestMeeplePlacement(GridDirection position) {
+        Player player = gameState.getRound().getActivePlayer();
+        if (player.hasFreeMeeples() && gameState.getCurrentTile().allowsPlacingMeeple(position, player, settings)) {
+            gameState.getCurrentTile().placeMeeple(player, position, settings);
             gameState.updateScores();
-            return true;
+            return position;
         } else {
-            return false;
+            return null ;
         }
     }
 
@@ -121,24 +141,30 @@ public class MainController implements ControllerFacade {
         for (int i = 0; i < tIleInf.getNumOgLRotation(); i++) {
             tile.rotateLeft();
         }
-        System.out.println(tIleInf.toString());
+
 
         if (gameState.getGrid().place(tIleInf.getX(), tIleInf.getY(),tile)) {
-            gameState.getRound().getActivePlayer().dropTile(tile);
+
+            boolean a= gameState.getRound().getActivePlayer().dropTile(tile);
+            System.out.println(a + " dropTile" + tile.toString());
             GridSpot spot = gameState.getGrid().getSpot(tIleInf.getX(), tIleInf.getY());
 
 
-
+            gameState.setCurrentTile(spot.getTile());
             return spot.getTile();
         }
         return null;
         //  stateMachine.getCurrentState().placeTile(x, y);
     }
+    @Override
+    public void startNextTurn() {
+                gameState.getRound().nextTurn();
+    }
+    @Override
+    public List<GridSpot> processGridPatterns() {
 
-
-    private void processGridPatterns(Tile tile) {
         List<GridSpot> removeMeeples =new ArrayList<>();
-        for (GridPattern pattern : gameState.getGrid().getModifiedPatterns(tile.getGridSpot())) {
+        for (GridPattern pattern : gameState.getGrid().getModifiedPatterns(gameState.getCurrentTile().getGridSpot())) {
             if (pattern.isComplete()) {
                 for (Meeple meeple : pattern.getMeepleList()) {
                     GridSpot spot = meeple.getLocation();
@@ -146,8 +172,20 @@ public class MainController implements ControllerFacade {
                 }
                 pattern.disburse(settings.getSplitPatternScore());
                 gameState.updateScores();
+                getScores();
             }
         }
+        return removeMeeples;
+    }
+    @Override
+    public List<Integer> getScores(){
+        List<Integer> sc = new ArrayList<>();
+        for (int playerNumber = 0; playerNumber < gameState.getRound().getPlayerCount(); playerNumber++) {
+            sc.add(gameState.getRound().getPlayer(playerNumber).getScore()) ;
+        }
+
+
+        return sc;
     }
 //private void startNextTurn() {
 //    if (round.isOver()) {
